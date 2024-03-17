@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!-- META -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="description" content="" />
+
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="{{asset('assets/frontend/images/logo3.png')}}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon"
+    href="{{asset('assets/frontend/images/logo3.png')}}" />
+
+    <!-- PAGE TITLE HERE -->
+    <title>Home Page</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <!-- BOOTSTRAP STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/font-awesome.min.css')}}" rel="stylesheet" />
+    <!-- Feather STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/feather.css')}}" rel="stylesheet" />
+    <!-- FLATICON STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/flaticon.min.css')}}" rel="stylesheet" />
+    <!-- WOW ANIMATE STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/animate.css')}}" rel="stylesheet" />
+    <!-- WOW CAROUSEL STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/owl.carousel.min.css')}}" rel="stylesheet" />
+    <!-- MAGNIFIC POPUP STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/magnific-popup.min.css')}}" rel="stylesheet" />
+    <!-- Lc light box popup -->
+    <link href="{{asset('assets/frontend/css/lc_lightbox.css')}}" rel="stylesheet" />
+    <!-- MAIN STYLE SHEET -->
+    <link href="{{asset('assets/frontend/css/style.css')}}" rel="stylesheet" />
+    <!-- REVOLUTION SLIDER CSS -->
+<!-- REVOLUTION SLIDER CSS -->
+
+    <!-- REVOLUTION SLIDER CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{asset('assets/frontend/plugins/revolution/revolution/css/settings.css')}}"
+    />
+    <!-- REVOLUTION NAVIGATION STYLE -->
+    <link  rel="stylesheet"
+      type="text/css"
+      href="{{asset('assets/frontend/plugins/revolution/revolution/css/navigation.css')}}"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+        body {
+
+  background-color: #c3e6e4;
+  position: relative;
+  z-index: -10;
+}
+
+        #matter-canvas {
+  width: 100%;
+  height: 100%;
+  filter: url(#gooey);
+  flex-shrink: 0;
+}
+
+#carton, #glass {
+  position: absolute;
+  pointer-events: none;
+}
+
+#glass {
+  width: 250px;
+  z-index: -10;
+}
+
+
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <!-- LOADING AREA START ===== -->
+    @include('frontend.includes.loading')
+    <!-- LOADING AREA  END ====== -->
+
+    <div class="page-wraper">
+
+      @include('frontend.includes.header')
+<canvas id="matter-canvas"></canvas>
+<img id="carton" >
+
+<svg>
+  <defs>
+    <filter id="gooey" height="130%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 40 -3" result="goo" />
+    </filter>
+  </defs>
+</svg>
+
+
+<img id="glass" >
+
+      {{-- @include('frontend.includes.home.slider') --}}
+
+
+      <!-- CONTENT START -->
+      {{-- <div class="page-content">
+        <section class="aon-vodeo-area position-relative"
+        style="background-image: url('{{ asset('assets/frontend/images/main-slider/slider-2/image-2.jpg') }}')">
+        <div class="aon-overlay-area"></div>
+        <div class="container">
+            <!--Title Section Start-->
+            <div class="aon-vodeo-section text-center">
+                <h2 class="aon-vodeo-title">Dairy Matters To The Future.</h2>
+                <div class="play-now-statice">
+                    <a href="https://www.youtube.com/watch?v=c1XNqw2gSbU"
+                        class="mfp-video play-now-video play-now-statice">
+                        <i class="icon fa fa-play"></i>
+                        <span class="ripple"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>--}}
+        <!-- SLIDER START -->
+        <div class="slider-outer">
+            <div
+              id="welcome_wrapper"
+              class="rev_slider_wrapper fullscreen-container"
+              data-alias="goodnews-header"
+              data-source="gallery"
+            >
+              <div
+                id="aon-slide-one"
+                class="rev_slider fullscreenbanner"
+                style="display: none"
+                data-version="5.4.3.1"
+              >
+                <ul>
+                  <!-- SLIDE 1 -->
+                  <li
+                    data-index="rs-901"
+                    data-transition="fade"
+                    data-slotamount="default"
+                    data-hideafterloop="0"
+                    data-hideslideonmobile="off"
+                    data-easein="default"
+                    data-easeout="default"
+                    data-masterspeed="default"
+                    data-thumb="{{asset('assets/frontend/images/main-slider/slider-1/image-1.jpg')}}"
+                    data-rotate="0"
+                    data-fstransition="fade"
+                    data-fsmasterspeed="300"
+                    data-fsslotamount="7"
+                    data-saveperformance="off"
+                    data-title="Slide Title"
+                    data-param1="1"
+                    data-param2=""
+                    data-param3=""
+                    data-param4=""
+                    data-param5=""
+                    data-param6=""
+                    data-param7=""
+                    data-param8=""
+                    data-param9=""
+                    data-param10=""
+                    data-description=""
+                  >
+                    <!-- MAIN IMAGE -->
+
+                    <img
+                      src="{{asset('assets/frontend/images/main-slider/slider-1/image-1.jpg')}}"
+                      alt=""
+                      data-lazyload="{{asset('assets/frontend/images/main-slider/slider-1/image-1.jpg')}}"
+                      data-bgposition="center center"
+                      data-kenburns="on"
+                      data-duration="10000"
+                      data-ease="Power1.easeOut"
+                      data-scalestart="110"
+                      data-scaleend="100"
+                      data-rotatestart="0"
+                      data-rotateend="0"
+                      data-offsetstart="0 0"
+                      data-offsetend="0 0"
+                      class="rev-slidebg xyz"
+                      data-no-retina
+                    />
+
+                    <!-- LAYER NR. 1 [ for overlay ] -->
+                    <div
+                      class="tp-caption tp-shape tp-shapewrapper"
+                      id="slide-901-layer-1"
+                      data-x="['center','center','center','center']"
+                      data-hoffset="['0','0','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['0','0','0','0']"
+                      data-width="full"
+                      data-height="full"
+                      data-whitespace="nowrap"
+                      data-type="shape"
+                      data-basealign="slide"
+                      data-responsive_offset="off"
+                      data-responsive="off"
+                      data-frames='[
+                                  {"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},
+                                  {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}
+                                  ]'
+                      data-textAlign="['left','left','left','left']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="
+                        z-index: 1;
+                        background-color: rgba(255, 255, 255, 0);
+                        border-color: rgba(0, 0, 0, 0);
+                        border-width: 0px;
+                      "
+                    ></div>
+
+                    <!-- LAYER NR. 2 [ for title ] -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-901-layer-2"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="[50','50','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['-100','-100','-200','-200']"
+                      data-fontsize="['84','52','42','38']"
+                      data-lineheight="['84','52','42','38']"
+                      data-width="['800','600','600','480']"
+                      data-height="['none','none','none','none']"
+                      data-whitespace="['normal','normal','normal','normal']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                              {"from":"y:100px(R);opacity:0;","speed":1000,"to":"o:1;","delay":2000,"ease":"Power4.easeOut"},
+                              {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                              ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[5,5,5,5]"
+                      data-paddingright="[0,0,0,20]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,20]"
+                      style="
+                        z-index: 11;
+                        white-space: normal;
+                        font-weight: 900;
+
+                        border-width: 0px;
+                        font-family: 'Cormorant';
+                      "
+                    >
+                      <span class="site-text-white"
+                        >We Provide You With All Natural Milk.</span
+                      >
+                    </div>
+
+                    <!-- LAYER NR. 3 [ for paragraph] -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-901-layer-3"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['50','50','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['50','20','-70','-100']"
+                      data-fontsize="['19','19','18','16']"
+                      data-lineheight="['28','28','28','22']"
+                      data-width="['800','600','600','480']"
+                      data-height="['none','none','none','none']"
+                      data-whitespace="['normal','normal','normal','normal']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                              {"from":"y:100px(R);opacity:0;","speed":1500,"to":"o:1;","delay":2500,"ease":"Power4.easeOut"},
+                              {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                              ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,30]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,30]"
+                      style="
+                        z-index: 11;
+                        font-weight: 400;
+                        color: #fff;
+                        border-width: 0px;
+                        font-family: 'Heebo', sans-serif;
+                      "
+                    >
+                      Nulla efficitur nulla in enim suscipit, pellentesque aliquam
+                      odio efficitur. In in aliquet nulla. Cras eu ex eget neque
+                      varius rutrum vitae id lacus. Pellentesque quis.
+                    </div>
+
+                    <!-- LAYER NR. 4 [ for see all service botton ] -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-901-layer-4"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['50','50','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['150','150','60','0']"
+                      data-lineheight="['none','none','none','none']"
+                      data-width="['300','300','300','300']"
+                      data-height="['none','none','none','none']"
+                      data-whitespace="['normal','normal','normal','normal']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                                  {"from":"y:100px(R);opacity:0;","speed":2000,"to":"o:1;","delay":2500,"ease":"Power4.easeOut"},
+                                  {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                                  ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 13; text-transform: uppercase"
+                    >
+                      <a href="contact-1.html" class="site-button btn-animate-one"
+                        >discover More
+                        <i class="btn-arrow-icon fa fa-angle-right"></i
+                      ></a>
+                    </div>
+
+                    <!-- LAYER NR. 5 [ VIDEO ICON ] -->
+                    <div
+                      class="tp-caption"
+                      id="slide-901-layer-5"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['350','350','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['150','150','150','100']"
+                      data-width="['300','300','300','300']"
+                      data-height="['none','none','none','none']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                                  {"from":"y:100px(R);opacity:0;","speed":2000,"to":"o:1;","delay":3000,"ease":"Power4.easeOut"},
+                                  {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                                  ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 14"
+                    >
+                      <div class="video-play-btn-banner-wrap white">
+                        <div class="video-play-btn-banner">
+                          <a
+                            class="mfp-video"
+                            href="https://www.youtube.com/watch?v=fgExvIUYg5w"
+                            ><i class="fa fa-play"></i
+                          ></a>
+                          <div class="vid-text">
+                            Watch Now <br />Companey Details
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- LAYER NR. 6  Img -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-901-layer-6"
+                      data-x="['right','right','center','center']"
+                      data-hoffset="['-150','0','0','0']"
+                      data-y="['bottom','bottom','bottom','bottom']"
+                      data-voffset="['120','120','50','50']"
+                      data-width="none"
+                      data-height="none"
+                      data-whitespace="nowrap"
+                      data-type="image"
+                      data-responsive_offset="off"
+                      data-frames='[{"from":"x:right;","speed":1200,"to":"o:1;","delay":2500,"ease":"Power3.easeOut"},{"delay":"wait","speed":1500,"to":"opacity:0;","ease":"Power4.easeIn"}]'
+                      data-textAlign="['right','right','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 13; border-width: 0px"
+                    >
+                      <div class="animate-v">
+                        <img
+                          src="{{asset('assets/frontend/images/main-slider/slider-1/milk.png')}}"
+                          alt=""
+                          data-ww="['491px','380px','150px','150px']"
+                          data-hh="['580px','449px','175px','175px']"
+                          width="537"
+                          height="691"
+                          data-no-retina
+                        />
+                      </div>
+                    </div>
+
+                    <!-- LAYER NR. 7  Img Cow -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-901-layer-7"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['-250','0','0','0']"
+                      data-y="['bottom','bottom','bottom','bottom']"
+                      data-voffset="['0','0','0','0']"
+                      data-width="none"
+                      data-height="none"
+                      data-whitespace="nowrap"
+                      data-basealign="slide"
+                      data-type="image"
+                      data-responsive_offset="off"
+                      data-frames='[{"from":"x:left;","speed":1500,"to":"o:1;","delay":2500,"ease":"Power3.easeOut"},{"delay":"wait","speed":1500,"to":"opacity:0;","ease":"Power4.easeIn"}]'
+                      data-textAlign="['right','right','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 1; border-width: 0px"
+                    >
+                      <div class="aon-banner-top-left-pic">
+                        <img src="{{asset('assets/frontend/images/main-slider/slider-1/cow.png')}}" alt="" />
+                        <div class="aon-banner-top-left-circle animte-plus"></div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- SLIDE 2 -->
+                  <li
+                    data-index="rs-902"
+                    data-transition="fade"
+                    data-slotamount="default"
+                    data-hideafterloop="0"
+                    data-hideslideonmobile="off"
+                    data-easein="default"
+                    data-easeout="default"
+                    data-masterspeed="default"
+                    data-thumb="{{asset('assets/frontend/images/main-slider/slider-2/image-2.jpg')}}"
+                    data-rotate="0"
+                    data-fstransition="fade"
+                    data-fsmasterspeed="300"
+                    data-fsslotamount="7"
+                    data-saveperformance="off"
+                    data-title="Slide Title"
+                    data-param1="1"
+                    data-param2=""
+                    data-param3=""
+                    data-param4=""
+                    data-param5=""
+                    data-param6=""
+                    data-param7=""
+                    data-param8=""
+                    data-param9=""
+                    data-param10=""
+                    data-description=""
+                  >
+                    <!-- MAIN IMAGE -->
+
+                    <img
+                      src="{{asset('assets/frontend/images/main-slider/slider-1/image-2.jpg')}}"
+                      alt=""
+                      data-lazyload="{{asset('assets/frontend/images/main-slider/slider-1/image-2.jpg')}}"
+                      data-bgposition="center center"
+                      data-kenburns="on"
+                      data-duration="10000"
+                      data-ease="Power1.easeOut"
+                      data-scalestart="110"
+                      data-scaleend="100"
+                      data-rotatestart="0"
+                      data-rotateend="0"
+                      data-offsetstart="0 0"
+                      data-offsetend="0 0"
+                      class="rev-slidebg xyz"
+                      data-no-retina
+                    />
+
+                    <!-- LAYER NR. 1 [ for overlay ] -->
+                    <div
+                      class="tp-caption tp-shape tp-shapewrapper"
+                      id="slide-902-layer-1"
+                      data-x="['center','center','center','center']"
+                      data-hoffset="['0','0','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['0','0','0','0']"
+                      data-width="full"
+                      data-height="full"
+                      data-whitespace="nowrap"
+                      data-type="shape"
+                      data-basealign="slide"
+                      data-responsive_offset="off"
+                      data-responsive="off"
+                      data-frames='[
+                                  {"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},
+                                  {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}
+                                  ]'
+                      data-textAlign="['left','left','left','left']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="
+                        z-index: 1;
+                        background-color: rgba(255, 255, 255, 0);
+                        border-color: rgba(0, 0, 0, 0);
+                        border-width: 0px;
+                      "
+                    ></div>
+
+                    <!-- LAYER NR. 2 [ for title ] -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-902-layer-2"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="[50','50','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['-100','-100','-200','-200']"
+                      data-fontsize="['84','52','42','38']"
+                      data-lineheight="['84','52','42','38']"
+                      data-width="['800','600','600','480']"
+                      data-height="['none','none','none','none']"
+                      data-whitespace="['normal','normal','normal','normal']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                              {"from":"y:100px(R);opacity:0;","speed":1000,"to":"o:1;","delay":2000,"ease":"Power4.easeOut"},
+                              {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                              ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[5,5,5,5]"
+                      data-paddingright="[0,0,0,20]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,20]"
+                      style="
+                        z-index: 11;
+                        white-space: normal;
+                        font-weight: 900;
+
+                        border-width: 0px;
+                        font-family: 'Cormorant';
+                      "
+                    >
+                      <span class="site-text-white"
+                        >We Provide You With All Natural Milk.</span
+                      >
+                    </div>
+
+                    <!-- LAYER NR. 3 [ for paragraph] -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-902-layer-3"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['50','50','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['50','20','-70','-100']"
+                      data-fontsize="['19','19','18','16']"
+                      data-lineheight="['28','28','28','22']"
+                      data-width="['800','600','600','480']"
+                      data-height="['none','none','none','none']"
+                      data-whitespace="['normal','normal','normal','normal']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                              {"from":"y:100px(R);opacity:0;","speed":1500,"to":"o:1;","delay":2500,"ease":"Power4.easeOut"},
+                              {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                              ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,30]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,30]"
+                      style="
+                        z-index: 11;
+                        font-weight: 400;
+                        color: #fff;
+                        border-width: 0px;
+                        font-family: 'Heebo', sans-serif;
+                      "
+                    >
+                      Nulla efficitur nulla in enim suscipit, pellentesque aliquam
+                      odio efficitur. In in aliquet nulla. Cras eu ex eget neque
+                      varius rutrum vitae id lacus. Pellentesque quis.
+                    </div>
+
+                    <!-- LAYER NR. 4 [ for see all service botton ] -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-902-layer-4"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['50','50','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['150','150','60','0']"
+                      data-lineheight="['none','none','none','none']"
+                      data-width="['300','300','300','300']"
+                      data-height="['none','none','none','none']"
+                      data-whitespace="['normal','normal','normal','normal']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                                  {"from":"y:100px(R);opacity:0;","speed":2000,"to":"o:1;","delay":2500,"ease":"Power4.easeOut"},
+                                  {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                                  ]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 13; text-transform: uppercase"
+                    >
+                      <a href="contact-1.html" class="site-button btn-animate-one"
+                        >discover More
+                        <i class="btn-arrow-icon fa fa-angle-right"></i
+                      ></a>
+                    </div>
+
+                    <!-- LAYER NR. 5 [ VIDEO ICON ] -->
+                    <div
+                      class="tp-caption"
+                      id="slide-902-layer-5"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['350','350','0','0']"
+                      data-y="['middle','middle','middle','middle']"
+                      data-voffset="['150','150','150','100']"
+                      data-width="['300','300','300','300']"
+                      data-height="['none','none','none','none']"
+                      data-type="text"
+                      data-responsive_offset="on"
+                      data-frames='[
+                                  {"from":"y:100px(R);opacity:0;","speed":2000,"to":"o:1;","delay":3000,"ease":"Power4.easeOut"},
+                                  {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                                  ]'
+                      data-textAlign="['left','left','left','left']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 14"
+                    >
+                      <div class="video-play-btn-banner-wrap white">
+                        <div class="video-play-btn-banner">
+                          <a
+                            class="mfp-video"
+                            href="https://www.youtube.com/watch?v=fgExvIUYg5w"
+                            ><i class="fa fa-play"></i
+                          ></a>
+                          <div class="vid-text">
+                            Watch Now <br />Companey Details
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- LAYER NR. 6  Img -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-902-layer-6"
+                      data-x="['right','right','center','center']"
+                      data-hoffset="['-150','0','0','0']"
+                      data-y="['bottom','bottom','bottom','bottom']"
+                      data-voffset="['120','120','50','50']"
+                      data-width="none"
+                      data-height="none"
+                      data-whitespace="nowrap"
+                      data-type="image"
+                      data-responsive_offset="off"
+                      data-frames='[{"from":"x:right;","speed":1200,"to":"o:1;","delay":2500,"ease":"Power3.easeOut"},{"delay":"wait","speed":1500,"to":"opacity:0;","ease":"Power4.easeIn"}]'
+                      data-textAlign="['right','right','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 13; border-width: 0px"
+                    >
+                      <div class="animate-v">
+                        <img
+                          src="{{asset('assets/frontend/images/main-slider/slider-1/milk.png')}}"
+                          alt=""
+                          data-ww="['491px','380px','150px','150px']"
+                          data-hh="['580px','449px','175px','175px']"
+                          width="537"
+                          height="691"
+                          data-no-retina
+                        />
+                      </div>
+                    </div>
+
+                    <!-- LAYER NR. 7  Img Cow -->
+                    <div
+                      class="tp-caption tp-resizeme"
+                      id="slide-902-layer-7"
+                      data-x="['left','left','center','center']"
+                      data-hoffset="['-100','0','0','0']"
+                      data-y="['bottom','bottom','bottom','bottom']"
+                      data-voffset="['0','0','0','0']"
+                      data-width="none"
+                      data-height="none"
+                      data-whitespace="nowrap"
+                      data-basealign="slide"
+                      data-type="image"
+                      data-responsive_offset="off"
+                      data-frames='[{"from":"x:left;","speed":1500,"to":"o:1;","delay":2500,"ease":"Power3.easeOut"},{"delay":"wait","speed":1500,"to":"opacity:0;","ease":"Power4.easeIn"}]'
+                      data-textAlign="['left','left','center','center']"
+                      data-paddingtop="[0,0,0,0]"
+                      data-paddingright="[0,0,0,0]"
+                      data-paddingbottom="[0,0,0,0]"
+                      data-paddingleft="[0,0,0,0]"
+                      style="z-index: 1; border-width: 0px"
+                    >
+                      <div class="aon-banner-top-left-pic">
+                        <img src="{{asset('assets/frontend/images/main-slider/slider-1/cow2.png')}}" alt="" />
+                        <div class="aon-banner-top-left-circle animte-plus"></div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div
+                  class="tp-bannertimer tp-bottom"
+                  style="visibility: hidden !important"
+                ></div>
+              </div>
+            </div>
+          </div>
+        @yield('content')
+
+
+
+
+      </div>
+      <!-- CONTENT END -->
+
+      <!-- FOOTER START -->
+      @include('frontend.includes.footer')
+      <!-- FOOTER END -->
+
+      <!-- BUTTON TOP START -->
+      <button class="scroltop">
+        <span class="fa fa-angle-up relative" id="btn-vibrate"></span>
+      </button>
+
+      <!-- Header Woo Cart START -->
+      <div class="aon-woocart-wrap">
+        <div class="aon-woocart-close">
+          <i class="fa fa-close feather-x"></i>
+        </div>
+        <div class="aon-woocart-inner">
+          <div class="aon-woocart-header">
+            <div class="aon-woocart-head-left"><h4>Booking Summery</h4></div>
+            <div class="aon-woocart-head-right">
+              Clear All <i class="feather-x"></i>
+            </div>
+          </div>
+          <div class="aon-woocart-body">
+            <div class="aon-woocart-body-mini-cart-scroll">
+              <ul class="woocommerce-mini-cart cart_list product_list_widget">
+                <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <a href="#" class="remove remove_from_cart_button">×</a>
+                  <a class="woocommerce-price-title" href="#"
+                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
+                    Marble Lamp</a
+                  >
+                  <span class="quantity"
+                    >1 ×
+                    <span class="woocommerce-price-amount amount">
+                      <bdi
+                        ><span class="woocommerce-Price-currencySymbol">$</span
+                        >336.39</bdi
+                      >
+                    </span>
+                  </span>
+                </li>
+                <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <a href="#" class="remove remove_from_cart_button">×</a>
+                  <a class="woocommerce-price-title" href="#"
+                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
+                    Marble Lamp</a
+                  >
+                  <span class="quantity"
+                    >1 ×
+                    <span class="woocommerce-price-amount amount">
+                      <bdi
+                        ><span class="woocommerce-Price-currencySymbol">$</span
+                        >336.39</bdi
+                      >
+                    </span>
+                  </span>
+                </li>
+                <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <a href="#" class="remove remove_from_cart_button">×</a>
+                  <a class="woocommerce-price-title" href="#"
+                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
+                    Marble Lamp</a
+                  >
+                  <span class="quantity"
+                    >1 ×
+                    <span class="woocommerce-price-amount amount">
+                      <bdi
+                        ><span class="woocommerce-Price-currencySymbol">$</span
+                        >336.39</bdi
+                      >
+                    </span>
+                  </span>
+                </li>
+                <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <a href="#" class="remove remove_from_cart_button">×</a>
+                  <a class="woocommerce-price-title" href="#"
+                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
+                    Marble Lamp</a
+                  >
+                  <span class="quantity"
+                    >1 ×
+                    <span class="woocommerce-price-amount amount">
+                      <bdi
+                        ><span class="woocommerce-Price-currencySymbol">$</span
+                        >336.39</bdi
+                      >
+                    </span>
+                  </span>
+                </li>
+                <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <a href="#" class="remove remove_from_cart_button">×</a>
+                  <a class="woocommerce-price-title" href="#"
+                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
+                    Marble Lamp</a
+                  >
+                  <span class="quantity"
+                    >1 ×
+                    <span class="woocommerce-price-amount amount">
+                      <bdi
+                        ><span class="woocommerce-Price-currencySymbol">$</span
+                        >336.39</bdi
+                      >
+                    </span>
+                  </span>
+                </li>
+                <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <a href="#" class="remove remove_from_cart_button">×</a>
+                  <a class="woocommerce-price-title" href="#"
+                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
+                    Marble Lamp</a
+                  >
+                  <span class="quantity"
+                    >1 ×
+                    <span class="woocommerce-price-amount amount">
+                      <bdi
+                        ><span class="woocommerce-Price-currencySymbol">$</span
+                        >336.39</bdi
+                      >
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="aon-woocart-footer">
+            <div class="aon-woocart-foo-top">
+              <div class="aon-woocart-foo-top-left">Subtotal :</div>
+              <div class="aon-woocart-foo-top-right">$255</div>
+            </div>
+            <div class="aon-woocart-foo-bot">
+              <div class="aon-woocart-foo-bot-left">
+                <button
+                  class="site-button-amore site-button-secondry btn-animate-one"
+                >
+                  Add More
+                </button>
+              </div>
+              <div class="aon-woocart-foo-bot-right">
+                <button
+                  class="site-button-chechout site-button btn-animate-one"
+                >
+                  CheckOut
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        const canvas = document.querySelector('#matter-canvas')
+    let canvasWidth = innerWidth
+    let canvasHeight = innerHeight
+
+    const stdDeviation = [8, 10]
+    const colorMatrix = ['15 -3', '30 -5']
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Events, Body } = Matter
+
+      let engine, render, runner, mouse, mouseConstraint
+
+      let circles = []
+      let glass
+
+      function init() {
+        engine = Engine.create({
+          constraintIterations: 10,
+          positionIterations: 10
+        })
+
+        render = Render.create({
+          canvas: canvas,
+          engine: engine,
+          options: {
+            width: canvasWidth,
+            height: canvasHeight,
+            wireframes: false,
+            background: 'transparent',
+            pixelRatio: 1
+          }
+        })
+
+        mouse = Mouse.create(canvas)
+
+        mouseConstraint = MouseConstraint.create(engine, {
+          mouse: mouse,
+          constraint: {
+            stiffness: 0.1,
+            render: { visible: false }
+          }
+        })
+
+        runner = Runner.create()
+
+        Render.run(render)
+        Runner.run(runner, engine)
+
+        mouse.element.removeEventListener('mousewheel', mouse.mousewheel)
+        mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel)
+        Composite.add(engine.world, mouseConstraint)
+      }
+
+      function createLiquid() {
+        const x = 105
+        const y = 105
+        const radius = randomNumBetween(6, 7)
+        const body = Bodies.circle(x, y, radius, {
+          friction: 0,
+          density: 1,
+          frictionAir: 0,
+          restitution: 0.7,
+          render: { fillStyle: '#fff' }
+        })
+        Body.applyForce(body, body.position, { x: 1, y: 0 })
+        Composite.add(engine.world, body)
+        circles.push(body)
+      }
+
+      function Glass() {
+        const glassImg = document.querySelector('#glass')
+        this.cx = canvasWidth * 0.5
+        this.cy = canvasHeight * 0.8
+        const thickness = 25
+        const wallColor = '#00000000'
+
+        const left = Bodies.rectangle(this.cx - 60, this.cy, thickness, 150, {
+          chamfer: { radius: 10 },
+          isStatic: true,
+          angle: Math.PI / 180 * -15,
+          render: { fillStyle: wallColor }
+        })
+        const right = Bodies.rectangle(this.cx + 37, this.cy, thickness, 150, {
+          chamfer: { radius: 10 },
+          isStatic: true,
+          angle: Math.PI / 180 * 15,
+          render: { fillStyle: wallColor }
+        })
+        const bottom = Bodies.rectangle(this.cx - 10, this.cy + 72, 85, thickness * 2, {
+          chamfer: { radius: 20 },
+          isStatic: true,
+          render: { fillStyle: wallColor }
+        })
+        glassImg.style.transform = `translate(${this.cx - canvasWidth / 2}px, ${this.cy - canvasHeight / 2}px)`
+
+        Composite.add(engine.world, [left, right, bottom])
+
+        this.setPosition = pos => {
+          this.cx = pos.x
+          this.cy = pos.y
+          Body.setPosition(left, { x: this.cx - 60, y: this.cy })
+          Body.setPosition(right, { x: this.cx + 37, y: this.cy })
+          Body.setPosition(bottom, { x: this.cx - 10, y: this.cy + 72 })
+          glassImg.style.transform = `translate(${this.cx - canvasWidth / 2}px, ${this.cy - canvasHeight / 2}px)`
+        }
+      }
+
+      init()
+      resizeFilter()
+      glass = new Glass()
+
+      Events.on(mouseConstraint, "mousemove", e => {
+        glass.setPosition({
+          x: e.mouse.position.x - 70,
+          y: e.mouse.position.y
+        })
+      })
+
+      Events.on(runner, 'tick', e => {
+        createLiquid()
+        for (let i = circles.length - 1; i >= 0; i--) {
+          if (circles[i].position.y - circles[i].circleRadius > canvasHeight) {
+            Composite.remove(engine.world, circles[i])
+            circles.splice(i, 1)
+          }
+        }
+      })
+
+      function resizeFilter() {
+        const feGaussianBlur = document.querySelector('#gooey feGaussianBlur')
+        const feColorMatrix = document.querySelector('#gooey feColorMatrix')
+        let index
+        if (canvasWidth < 600) index = 0
+        else index = 1
+        feGaussianBlur.setAttribute('stdDeviation', stdDeviation[index])
+        feColorMatrix.setAttribute('values', `1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 ${colorMatrix[index]}`)
+      }
+
+      window.addEventListener('resize', () => {
+        canvasWidth = innerWidth
+        canvasHeight = innerHeight
+        render.canvas.width = canvasWidth
+        render.canvas.height = canvasHeight
+        resizeFilter()
+
+        glass.setPosition({ x: canvasWidth * 0.5, y: canvasHeight * 0.8 })
+      })
+    })
+
+    function randomNumBetween(min, max) {
+      return Math.random() * (max - min) + min
+    }
+    </script>
+
+    <!-- JAVASCRIPT  FILES ========================================= -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
+
+    <script src="{{asset('assets/frontend/js/jquery-3.6.1.min.js')}}"></script>
+    <!-- JQUERY.MIN JS -->
+    <script src="{{asset('assets/frontend/js/popper.min.js')}}"></script>
+    <!-- POPPER.MIN JS -->
+    <script src="{{asset('assets/frontend/js/bootstrap.min.js')}}"></script>
+    <!-- BOOTSTRAP.MIN JS -->
+    <script src="{{asset('assets/frontend/js/wow.js')}}"></script>
+    <!-- WOW JS -->
+    <script src="{{asset('assets/frontend/js/jquery.bootstrap-touchspin.js')}}"></script>
+    <!-- FORM JS -->
+    <script src="{{asset('assets/frontend/js/magnific-popup.min.js')}}"></script>
+    <!-- MAGNIFIC-POPUP JS -->
+    <script src="{{asset('assets/frontend/js/waypoints.min.js')}}"></script>
+    <!-- WAYPOINTS JS -->
+    <script src="{{asset('assets/frontend/js/counterup.min.js')}}"></script>
+    <!-- COUNTERUP JS -->
+    <script src="{{asset('assets/frontend/js/waypoints-sticky.min.js')}}"></script>
+    <!-- STICKY HEADER -->
+    <script src="{{asset('assets/frontend/js/owl.carousel.min.js')}}"></script>
+    <!-- OWL  SLIDER  -->
+    <script src="{{asset('assets/frontend/js/theia-sticky-sidebar.js')}}"></script>
+    <!-- STICKY SIDEBAR  -->
+    <script src="{{asset('assets/frontend/js/lc_lightbox.lite.js')}}"></script>
+    <!-- IMAGE POPUP -->
+    <script src="{{asset('assets/frontend/js/custom.js')}}"></script>
+    <!-- CUSTOM FUCTIONS  -->
+
+    <!-- REVOLUTION JS FILES -->
+
+    <script src="{{asset('assets/frontend/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js')}}"></script>
+    <script src="{{asset('assets/frontend/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
+
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="{{asset('assets/frontend/plugins/revolution/revolution/js/extensions/revolution-plugin.js')}}"></script>
+
+    <!-- REVOLUTION SLIDER SCRIPT FILES -->
+    <script src="{{asset('assets/frontend/js/rev-script-1.js')}}"></script>
+  </body>
+</html>
