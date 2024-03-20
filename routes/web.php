@@ -133,4 +133,6 @@ Route::get('/dashboard/slider',[SettingsController::class,'show_slider'])->name(
 Route::get('/dashboard/slider/store',[SettingsController::class,'slider_store'])->name('store.slider');
 //add_slider
 Route::post('/dashboard/slider/store/add',[SettingsController::class,'add_slider'])->name('add.slider');
+//delete slider delete.slider
+Route::get('/dashboard/slider/store/delete/{id}',[SettingsController::class,'delete_slider'])->name('delete.slider');
 

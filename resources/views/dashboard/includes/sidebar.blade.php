@@ -153,7 +153,7 @@
               <li class="nav-item">
                 <a href="{{route('show.slider')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
+                  <p>Slider</p>
                 </a>
               </li>
 

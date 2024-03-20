@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Slider;
-Use App\Http\Controllers\Input;
+use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
 {
@@ -55,9 +55,10 @@ class SettingsController extends Controller
 
       public function show_slider(){
         $sliders = slider::all();
-        //dashboard.pages.settings.users_update
-      return view('dashboard.pages.settings.slider_show',compact('sliders'));
-    //   return view('dashboard.pages.settings.users_update',compact('sliders'));
+        $imageUrl = Storage::url($sliders->image);
+
+      return view('dashboard.pages.settings.slider_show',compact('sliders','imageUrl'));
+
 
     }
     public function slider_store(){
@@ -73,49 +74,50 @@ class SettingsController extends Controller
         $request->validate([
     		'name'=>'string|min:3|max:50',
     		'description'=>'min:3|max:400',
-            'imge' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    		//'imge'=>'mimes:png,jpg,jpeg,gif,ico,icon',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    		'created_at' =>now()
     	]);
-        // $images = $request->file('imge');
-    	//   $image_name = time().'.'.$images->getClientOriginalExtension();
-    	//   $images->resize(300, 200)->save('upload/'.$image_name);
-    	//   $save_url = 'upload/'.$image_name;
+    //   $input = $request->all();
+    //     if($request->hasFile['image']){
+    //       $datafile_path='public/images/products';
+    //       $image = $request->file('image');
+    //       $image_name=$image->getClientOriginalExtension();
+    //       $path=$request->file('image')->storeAs($datafile_path,$image_name);
 
-        //   slider::insert([
-    	//   	'name'=>$request->name,
-    	//   	'description'=>$request->description
-    	//   ]);
+    //       //$input['image'] = $image_name;
+    //       slider::create($input);
+    //       slider::insert([
+    //        'name' => $request->name,
+    //        'description' => $request->description,
+    //        'image' => $path
+    //    ]);
+    //     }
 
-        // $image_name = time().'.'.$request->file('imge')->getClientOriginalExtension();
-        // $request->file('imge')->move(public_path('upload'), $image_name);
-
-        // slider::insert([
-        //     'name' => $request->name,
-        //     'description' => $request->description,
-        //     'image' => 'upload/'.$image_name,
-        // ]);
-
-        if($request->hasFile('image')){
-            if (slider::file('image')->isValid()) {
-                $file = slider::file('image');
-                $destination = 'upload'.'/';
-                $ext= $file->getClientOriginalExtension();
-                $mainFilename = time();
-                $file->move($destination, $mainFilename.".".$ext);
-                echo "uploaded successfully";
-            }
-            slider::insert([
-                'name' => $request->name,
-                'description' => $request->description,
-                'image' => 'upload/'.$file,
-            ]);
-
-            }
+        // $datafile_path='public/images/products';
+        // $image = $request->file('image');
+        // $image_name=$image->getClientOriginalExtension();
+        // $path=$request->file('image')->storeAs($datafile_path,$image_name);
 
 
-     return back()->route('show.slider')->with('message','تم إضافة صنف جديد');
+
+       // $datafile_path='public/images/';
+        $imageName = time().'.'.$request->file('image')->getClientOriginalExtension();
+        $path = $request->file('image')->storeAs('image',$imageName);
+        slider::insert([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $path
+               ]);
 
 
+        return redirect()->route('show.slider')->with('message','Done');
+
+        }
+        public function delete_slider(request $request ,$id){
+            //$slider=
+             Slider::find($id)->delete();
+            //$imageUrl = Storage::url($slider->image);
+            return redirect()->route('show.slider')->with('message','Done Deleted');
 
         }
 }

@@ -28,6 +28,11 @@
 
                         </div>
                       </div>
+                      @if (session('message'))
+                      <div class="alert alert-success" role="alert">
+                          {{ session('message') }}
+                      </div>
+                  @endif
                 <div id="table_confirm_delete" class="table-editor">
                     <div class="table-editor__inner table-responsive ps" style="overflow: auto; position: relative;">
                         <table id="example2" class="table table-hover">
@@ -48,13 +53,20 @@
                                         {{$slider->id}}</td>
                                     <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">
                                         {{$slider->name}}</td>
-                                    <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="office">
-                                        {{$slider->image}}</td>
+                                        <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">
+                                        <div class="media">
 
-                                    <td><a href="{{ Route('update.slider',$slider->id) }}"
+    <img src="{{asset("storage/app/".$slider->image)}}" class="img-size-50 mr-3 img-circle">
+
+                                            {{-- <img src="{{asset("storage/app/".$slider->image)}}" class="img-size-50 mr-3 img-circle"> --}}
+
+                                          </div>
+                                        </td>
+
+                                    <td><a href="{{ Route('store.slider',$slider->id) }}"
                                         class="me-2 btn btn-lg text-dark edit-button">
-                                        <i class="far fa-edit"></i>Edit</a>
-                                          <a href="{{ Route('update.slider',$slider->id) }}"
+                                        <i class="far fa-edit"></i>Edit</a> </td>
+                                        <td> <a href="{{ Route('delete.slider',$slider->id) }}" id="delete"
                                              class="btn btn-lg text-dark popconfirm-toggle ">
                                         <i class="far fa-trash-alt"></i>Delete</a>
                                     </td>
@@ -93,6 +105,37 @@
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endsection
+<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
+{{-- <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
+<script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+{{-- <script>
+    $(document).on("click", "#delete", function(e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'هل تريد تأكيد الحذف',
+            icon: 'question',
+            iconHtml: '؟',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'نعم',
+            cancelButtonText: 'لا',
+            showCancelButton: true,
+            showCloseButton: true
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = link;
+                    Swal.fire(
+                        'تم الحذف!',
+                        'تم الحذف بنجاح.',
+                        'نجاح'
+                    )
+                }
+            });
+        });
+    </script> --}}
 
 @section('scripts')
     <!-- DataTables  & Plugins -->
