@@ -53,20 +53,17 @@
                                         {{$slider->id}}</td>
                                     <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">
                                         {{$slider->name}}</td>
-                                        <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">
+                                    <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">
                                         <div class="media">
-
-    <img src="{{asset("storage/app/".$slider->image)}}" class="img-size-50 mr-3 img-circle">
-
-                                            {{-- <img src="{{asset("storage/app/".$slider->image)}}" class="img-size-50 mr-3 img-circle"> --}}
-
+                                            <img src='{{asset("storage/$slider->image")}}' class="img-size-50 mr-3 img-circle">
                                           </div>
-                                        </td>
+                                    </td>
 
                                     <td><a href="{{ Route('store.slider',$slider->id) }}"
                                         class="me-2 btn btn-lg text-dark edit-button">
-                                        <i class="far fa-edit"></i>Edit</a> </td>
-                                        <td> <a href="{{ Route('delete.slider',$slider->id) }}" id="delete"
+                                        <i class="far fa-edit"></i>Edit</a>
+                                    </td>
+                                    <td> <a href="{{ Route('delete.slider',$slider->id) }}" id="delete"
                                              class="btn btn-lg text-dark popconfirm-toggle ">
                                         <i class="far fa-trash-alt"></i>Delete</a>
                                     </td>
@@ -99,59 +96,27 @@
 
         </div>
     </section>
-@section('styles')
+    @section('styles')
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
-@endsection
-<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
-{{-- <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
-<script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="{{asset('assets/dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+  @endsection
 
-{{-- <script>
-    $(document).on("click", "#delete", function(e) {
-        e.preventDefault();
-        var link = $(this).attr("href");
-        Swal.fire({
-            title: 'هل تريد تأكيد الحذف',
-            icon: 'question',
-            iconHtml: '؟',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'نعم',
-            cancelButtonText: 'لا',
-            showCancelButton: true,
-            showCloseButton: true
-
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = link;
-                    Swal.fire(
-                        'تم الحذف!',
-                        'تم الحذف بنجاح.',
-                        'نجاح'
-                    )
-                }
-            });
-        });
-    </script> --}}
-
-@section('scripts')
-    <!-- DataTables  & Plugins -->
-    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-
+  @section('scripts')
+  <script src="{{ asset('assets/dashboard/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/jszip/jszip.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/pdfmake/pdfmake.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/pdfmake/vfs_fonts.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/plugins/toastr/toastr.min.js') }}"></script>
     <script>
         $(function() {
             $("#example1").DataTable({

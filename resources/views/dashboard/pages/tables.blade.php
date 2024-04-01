@@ -242,14 +242,9 @@
             </div>
         </div>
       @if (session('message'))
-      <script>
-        // $('.toastrDefaultSuccess').click(function() {
-      toastr.success({{ session('message') }});
-    // });
-    </script>
-      {{-- <div class="alert alert-success" role="alert">
+      <div class="alert alert-success" role="alert">
           {{ session('message') }}
-      </div> --}}
+      </div>
   @endif
      <script src="{{asset('assets/dashboard/plugins/jquery/jquery.min.js')}}"></script>
      <script>

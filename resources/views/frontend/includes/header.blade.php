@@ -17,16 +17,17 @@
           <div class="aon-topbar-right d-flex flex-wrap">
             <ul class="topbar-social-icons list-unstyled m-0">
               <li>
-                <a href="javascript:void(0);" class="fa fa-facebook"></a>
+                <a href="{{$SocialFac->link}}" class="fa fa-facebook"></a>
               </li>
               <li>
-                <a href="javascript:void(0);" class="fa fa-twitter"></a>
+                <a href="{{$SocialTwi->link}}" class="fa fa-twitter"></a>
               </li>
               <li>
-                <a href="javascript:void(0);" class="fa fa-vimeo"></a>
+                <a href="{{$SocialInsta->link}}"class="fa fa-instagram"></a>
               </li>
+
               <li>
-                <a href="javascript:void(0);" class="fa fa-skype"></a>
+                <a href="{{$SocialYout->link}}" class="fa fa-youtube"></a>
               </li>
             </ul>
           </div>
@@ -39,7 +40,7 @@
           <!--Logo section start-->
           <div class="logo-header">
             <div class="logo-header-inner logo-header-one">
-              <a href="index.html">
+              <a href="{{url('/')}}">
                 <img src="{{asset('assets/frontend/images/wetaly/186-removebg-preview.png')}}" alt="" />
               </a>
             </div>
@@ -65,14 +66,14 @@
           >
             <ul class="nav navbar-nav">
               <li class="current-menu-item">
-                <a href="{{ route('frontend.homepage') }}">Home</a>
+                <a href="{{ route('frontend.homepage') }}">Home </a>
               </li>
               <li><a href="{{ route('frontend.about') }}">About us</a></li>
               <li class="has-child">
                 <a href="javascript:;">Services</a>
                 <ul class="sub-menu">
                   <li><a href="{{ route('frontend.services') }}">Services</a></li>
-                  <li><a href="{{ route('frontend.service-details') }}">Service detail</a></li>
+                  {{-- <li><a href="{{ route('frontend.service-details') }}">Service detail</a></li> --}}
                 </ul>
               </li>
 
@@ -84,7 +85,7 @@
                 <a href="javascript:;">Blog</a>
                 <ul class="sub-menu">
                   <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
-                  <li><a href="{{ route('frontend.blog-details') }}">Blog Detail</a></li>
+                  <li><a href="{{ route('frontend.gallery') }}">Gallery</a></li>
                 </ul>
               </li>
               <li><a href="{{ route('frontend.contact') }}">Contact us</a></li>

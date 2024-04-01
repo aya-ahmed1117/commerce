@@ -1,3 +1,4 @@
+
 <div class="slider-outer">
     <div
       id="welcome_wrapper"
@@ -11,7 +12,34 @@
         style="display: none"
         data-version="5.4.3.1"
       >
+{{--
+      @php
+      if($propertys->propertyImage!=null){
+      $images =  json_decode($propertys->propertyImage->image_path, true);
+      }
+      else{
+      $images=null;
+      }
+      @endphp
+      <?php
+       //$images_prop = collect($images['property_images']);
+      ?>
+      <ul id="lightgallery">
+      @if($images['property_images']!=null)
+         @forelse($images_prop as $img)
+         <li class="sizing-li position-relative" data-src="{{ asset($img) }}">
+            <a href="javascript:void()">
+               <img class="img-responsive" src="{{ asset($img) }}" style="width:929px; height:495px;">
+            </a>
+         </li>
+      </ul>
+         @empty
+         @endforelse
+         @endif --}}
+
+
         <ul>
+            @foreach ($sliders as $slider=>$aID)
           <!-- SLIDE 1 -->
           <li
             data-index="rs-901"
@@ -22,7 +50,7 @@
             data-easein="default"
             data-easeout="default"
             data-masterspeed="default"
-            data-thumb="{{asset('assets/frontend/images/main-slider/slider-1/image-1.jpg')}}"
+            data-thumb="{{asset("storage/$aID->image")}}"
             data-rotate="0"
             data-fstransition="fade"
             data-fsmasterspeed="300"
@@ -39,14 +67,13 @@
             data-param8=""
             data-param9=""
             data-param10=""
-            data-description=""
-          >
+            data-description=""    >
             <!-- MAIN IMAGE -->
 
             <img
-              src="{{asset('assets/frontend/images/main-slider/slider-1/image-1.jpg')}}"
+              src="{{asset("storage/$aID->image")}}"
               alt=""
-              data-lazyload="{{asset('assets/frontend/images/main-slider/slider-1/image-1.jpg')}}"
+              data-lazyload="{{asset("storage/$aID->image")}}"
               data-bgposition="center center"
               data-kenburns="on"
               data-duration="10000"
@@ -58,8 +85,7 @@
               data-offsetstart="0 0"
               data-offsetend="0 0"
               class="rev-slidebg xyz"
-              data-no-retina
-            />
+              data-no-retina       />
 
             <!-- LAYER NR. 1 [ for overlay ] -->
             <div
@@ -127,7 +153,9 @@
               "
             >
               <span class="site-text-white"
-                >We Provide You With All Natural Milk.</span
+                >{{$aID->name}}
+
+                </span
               >
             </div>
 
@@ -166,6 +194,7 @@
               Nulla efficitur nulla in enim suscipit, pellentesque aliquam
               odio efficitur. In in aliquet nulla. Cras eu ex eget neque
               varius rutrum vitae id lacus. Pellentesque quis.
+              {{$aID->description}}
             </div>
 
             <!-- LAYER NR. 4 [ for see all service botton ] -->
@@ -298,6 +327,7 @@
               </div>
             </div>
           </li>
+          @endforeach
 
           <!-- SLIDE 2 -->
           <li
@@ -586,6 +616,7 @@
             </div>
           </li>
         </ul>
+
         <div
           class="tp-bannertimer tp-bottom"
           style="visibility: hidden !important"
@@ -593,3 +624,4 @@
       </div>
     </div>
   </div>
+

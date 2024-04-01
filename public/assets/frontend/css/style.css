@@ -1763,6 +1763,7 @@ ol li {
   z-index: 1;
   overflow: hidden;
   display: inline-block;
+  color: #fff;
 }
 .btn-animate-one:before {
   content: "";
@@ -1772,6 +1773,7 @@ ol li {
   right: 100%;
   background: rgba(0, 0, 0, 0.1);
   height: 50px;
+  color: #fff;
   width: 50px;
   border-radius: 50px;
   transform: scale(0);
@@ -17722,7 +17724,8 @@ Home page One CSS
   font-family: "Cormorant";
 }
 .aon-shop-box:hover .aon-shop-price {
-  color: #3b51cf;
+  /* color: #3b51cf; */
+  color:#fff;
 }
 .aon-shop-btn {
   background: #ededf0;
@@ -18633,7 +18636,8 @@ Inner pages Css
   height: 100%;
 }
 .aon-page-benner-area2 {
-  background-image: url("/assets/frontend/images/inner-banner.jpg");
+  /* background-image: url('{{ asset($product->image) }}'); */
+  /* url("/assets/frontend/images/inner-banner.jpg"); */
   position: relative;
   background-size: cover;
   background-position: center;

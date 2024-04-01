@@ -1,6 +1,6 @@
 
 
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.aboutmaster')
 
 {{-- @include('frontend.includes.header')
 @include('frontend.includes.home.slider') --}}

@@ -1,4 +1,5 @@
-@extends('frontend.layouts.master')
+
+@extends('frontend.layouts.aboutmaster')
 
 @section('content')
     @include('frontend.includes.page-banner', ['title' => 'Products'])
@@ -35,114 +36,34 @@
             </div>
             <div class="product-listing-area">
                 <div class="row">
+                    @if (count($Products)>0)
+                    @foreach ($Products as $Product)
                     <div class="col-lg-3 col-md-6">
                         <div class="aon-shop-box">
                             <div class="aon-shop-pic">
-                            <img src="images/products/pic-1.png" alt="">
+                            <img src="{{asset("storage/$Product->image")}}" alt="">
                             </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
+                            <h4 class="aon-shop-title">{{$Product->name}}</h4>
+                            <p class="aon-shop-text">{{$Product->name}}</p>
+
+
 
                             <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
+                                <div class="aon-shop-price">{{$Product->price}} LE</div>
+                                {{-- <div class="aon-shop-add-to d-flex">
                                     <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
                                     <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="aon-shop-box">
-                            <div class="aon-shop-pic">
-                            <img src="images/products/pic-2.png" alt="">
-                            </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
-
-                            <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
+                    @else
+                    <div class="aon-shop-box">
+                        <h4 class="aon-shop-title"> لا يوجد بيانات </h4>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="aon-shop-box">
-                            <div class="aon-shop-pic">
-                            <img src="images/products/pic-3.png" alt="">
-                            </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
-
-                            <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="aon-shop-box">
-                            <div class="aon-shop-pic">
-                            <img src="images/products/pic-4.png" alt="">
-                            </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
-
-                            <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="aon-shop-box">
-                            <div class="aon-shop-pic">
-                            <img src="images/products/pic-4.png" alt="">
-                            </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
-
-                            <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="aon-shop-box">
-                            <div class="aon-shop-pic">
-                            <img src="images/products/pic-3.png" alt="">
-                            </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
-
-                            <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                     @endif
+{{--
                     <div class="col-lg-3 col-md-6">
                         <div class="aon-shop-box">
                             <div class="aon-shop-pic">
@@ -159,42 +80,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="aon-shop-box">
-                            <div class="aon-shop-pic">
-                            <img src="images/products/pic-1.png" alt="">
-                            </div>
-                            <h4 class="aon-shop-title">Organic Food</h4>
-                            <p class="aon-shop-text">There are many variations of passages Lorem.</p>
 
-                            <div class="aon-shop-bot d-flex">
-                                <div class="aon-shop-price">$29.00</div>
-                                <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="aon-paging-control">
-                        <div class="site-pagination2">
-                            <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#">04</a></li>
-                            </ul>
-                        </div>
-                        <div class="aon-paging-arrow">
-                            <div class="aon-paging-arrow-inner">
-                                <button type="button"><i class="flaticon-left-arrow"></i></button>
-                                <button type="button"><i class="flaticon-right-arrows"></i></button>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>

@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.aboutmaster')
 
 @section('content')
     @include('frontend.includes.page-banner', ['title' => 'Blog'])

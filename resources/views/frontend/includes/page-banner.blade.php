@@ -1,5 +1,15 @@
 
-<div class="aon-page-benner-area2">
+<title> {{ $title }}</title>
+
+
+    @foreach ($slider_img as $img)
+  <div class="aon-page-benner-area2" style="background-image: url({{ asset('storage/' . $img->image) }});">
+    <!-- Your other HTML elements here -->
+
+@endforeach
+
+
+
     <div class="aon-page-banner-row2">
         <div class="aon-page-benner-overlay2"></div>
         <div class="sf-banner-heading-wrap2">
@@ -23,3 +33,5 @@
         </div>
     </div>
 </div>
+{{-- @endforeach --}}
+

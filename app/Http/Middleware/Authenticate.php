@@ -16,7 +16,7 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             // return route('login');
-            return ('dashboard.pages.auth.index');
+            return view('dashboard.pages.auth.index');
         }
     }
 }

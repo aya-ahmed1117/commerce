@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.aboutmaster')
 
 @section('content')
     @include('frontend.includes.page-banner', ['title' => 'Contact US'])
@@ -9,8 +9,21 @@
         <div class="container">
 
             <div class="aon-con-map ">
+                {!!$Contactus->map!!}
+
                 <!--Google Map-->
-                <iframe class="grayscle-area" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                {{-- <iframe class="grayscle-area"
+                src="https://www.google.com/maps/place/Ramses+Hilton
+                /@30.0503644,31.1558318,13z/data=!4m12!1m2!2m1!1sHotels
+                !3m8!1s0x145840c381a29537:0xf1d5b3a64a0e4de1!5m2!4m1!1i2!
+                8m2!3d30.050365!4d31.2320411!16s%2Fg%2F1tf3kxjk?entry=ttu"></iframe> --}}
+                {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!
+                1m12!1m3!1d55256.46580156497!2d31.15583181381224!3d30.050364410608722!2m3!1f0!2f0!3f0
+                !3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840c381a29537%3A0xf1d5b3a64a0e4de1!2sR
+                amses%20Hilton!5e0!3m2!1sen!2seg!4v1711835203118!5m2!1sen!2seg" width="400"
+                height="300" style="border:0;"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
                 <!--Contact Info-->
                 <div class="aon-con-info-box">
                     <h3 class="aon-con-info-title">Contact 24/7</h3>
@@ -23,7 +36,7 @@
                             </div>
                             <div class="aon-con-text">
                                 <span>Contact Phone</span>
-                                <strong>+55 (9900) 666 22</strong>
+                                <strong>{{$Contactus->phone}}</strong>
                             </div>
                         </li>
                         <!--Email-->
@@ -33,7 +46,7 @@
                             </div>
                             <div class="aon-con-text">
                                 <span>Contact Mail</span>
-                                <strong>info.atrik @gmail.com</strong>
+                                <strong>{{$Contactus->email}}</strong>
                             </div>
                         </li>
                         <!--Address-->
@@ -43,7 +56,7 @@
                             </div>
                             <div class="aon-con-text">
                                 <span>Contact Location</span>
-                                <strong>18/2, Topkhana Road, Australia.</strong>
+                                <strong>{{$Contactus->address}}</strong>
                             </div>
                         </li>
                     </ul>

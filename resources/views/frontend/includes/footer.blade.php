@@ -1,4 +1,20 @@
-<footer class="site-footer footer-gradient">
+
+
+
+@if (count($Footers) > 0)
+
+        @foreach ($Footers as $img)
+
+        <footer class="site-footer footer-gradient"
+        style="background-image: url({{ asset('storage/' . $img->image) }});  background-repeat: no-repeat;
+            background-size: cover; ">
+
+        @endforeach
+    @else
+        <footer class="site-footer footer-gradient">
+    @endif
+
+
     <!-- FOOTER BLOCKES START -->
     <div class="footer-top">
       <div class="container">
@@ -6,16 +22,32 @@
           <!-- COLUMNS 1 -->
           <div class="col-lg-3 col-md-6">
             <div class="sf-site-link sf-widget-link f-margin">
-              <div class="aon-footer-logo">
-                <img src="{{asset('assets/frontend/images/wetaly/removebg-.png')}}" alt="" />
-              </div>
+
+                {{-- @if (count($slider_img) > 0)
+
+                @foreach ($slider_img as $img)
+
+                <div class="aon-footer-logo">
+                    <img src="{{asset('storage/' . $img->image)}}" alt="" />
+                  </div>
+
+          @endforeach
+            @else
+          @endif --}}
+          <div class="aon-footer-logo">
+            <img src="{{asset('assets/frontend/images/wetaly/186-removebg-preview.png')}}" alt="" />
+          </div>
+
+
+
+
               <div class="aon-footer-text">
                 Morbi vehicula luctus feugiat. In sapien id odio tempor
                 iaculis.
               </div>
               <ul class="aon-footer-coinfo">
-                <li><i class="feather-phone-call"></i> +966 2254 344</li>
-                <li><i class="feather-mail"></i> infomil906@gmail.com</li>
+                <li><i class="feather-phone-call"></i>{{$Contactus->phone}}</li>
+                <li><i class="feather-mail"></i>{{$Contactus->email}}</li>
               </ul>
             </div>
           </div>
@@ -58,22 +90,21 @@
               </form>
               <ul class="aon-socila-icon d-flex">
                 <li>
-                  <a href="javascript:void(0);"
-                    ><i class="feather-facebook"></i
-                  ></a>
+                  <a href="{{$SocialFac->link}}" target="_blank">
+                    <i class="feather-facebook"></i></a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);"
+                  <a href="{{$SocialTwi->link}}"
                     ><i class="feather-twitter"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);"
-                    ><i class="feather-linkedin"></i
+                  <a href="{{$SocialYout->link}}"
+                    ><i class="feather-youtube"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);"
+                  <a href="{{$SocialInsta->link}}"
                     ><i class="feather-instagram"></i
                   ></a>
                 </li>

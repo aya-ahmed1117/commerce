@@ -34,6 +34,40 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('assets/dashboard/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/dashboard/js/pages/dashboard.js')}}"></script>
+<script src="{{asset('assets/dashboard/js/adminlte.min.js')}}"></script>
+<script src="{{asset('assets/dashboard/plugins/codemirror/codemirror.js')}}"></script>
+<script src="{{asset('assets/dashboard/plugins/codemirror/mode/css/css.js')}}"></script>
+<script src="{{asset('assets/dashboard/plugins/codemirror/mode/xml/xml.js')}}"></script>
+<script src="{{asset('assets/dashboard/plugins/codemirror/mode/htmlmixed/htmlmixed.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
+
 
    @yield('scripts')
    @stack('script')
+   {{-- <script src="{{ asset('assets/dashboard/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/jszip/jszip.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/pdfmake/pdfmake.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/pdfmake/vfs_fonts.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/plugins/toastr/toastr.min.js') }}"></script> --}}
+

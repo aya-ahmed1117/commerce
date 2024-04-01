@@ -1,8 +1,9 @@
-@extends('frontend.layouts.master')
+{{-- @extends('frontend.layouts.master') --}}
+@extends('frontend.layouts.aboutmaster')
 
 @section('content')
     <!-- SLIDER START -->
-    {{-- @include('frontend.includes.home.slider') --}}
+    @include('frontend.includes.home.slider')
     <!-- SLIDER END -->
     <!-- START HERO SECTION -->
 
@@ -23,6 +24,7 @@
 
     <!-- START BLOG SECTION -->
     @include('frontend.includes.home.blog')
+    {{-- @include('frontend.pages.blog.index') --}}
     <!-- START BLOG SECTION -->
 
     <!-- START TEAM SECTION -->
