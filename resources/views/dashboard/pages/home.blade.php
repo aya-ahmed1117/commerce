@@ -41,7 +41,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>{{$AllPlog}}
+            <h3>{{$Allblog}}
                 {{-- <sup style="font-size: 20px">%</sup> --}}
             </h3>
 

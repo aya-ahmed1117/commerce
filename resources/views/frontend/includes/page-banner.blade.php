@@ -2,12 +2,18 @@
 <title> {{ $title }}</title>
 
 
-    @foreach ($slider_img as $img)
-  <div class="aon-page-benner-area2" style="background-image: url({{ asset('storage/' . $img->image) }});">
-    <!-- Your other HTML elements here -->
+    @if (count($slider_img) > 0)
 
-@endforeach
+        @foreach ($slider_img as $img)
+    <div class="aon-page-benner-area2" style="background-image: url({{ asset('storage/' . $img->image) }});">
 
+    @endforeach
+    <!-- Column 2 -->
+
+
+        @else
+        <div class="aon-page-benner-area2" style="background-image: url({{ asset('assets/frontend/images/pro-pic2.jpg') }});">
+        @endif
 
 
     <div class="aon-page-banner-row2">

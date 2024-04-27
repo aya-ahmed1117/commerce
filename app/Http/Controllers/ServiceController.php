@@ -37,8 +37,6 @@ class ServiceController extends Controller
                 // return redirect()->route('frontend.homepage');
             }
 
-
-
     }
 
     public function  add_service(request $request){

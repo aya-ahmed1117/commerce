@@ -42,7 +42,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
     {{-- <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
-    <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {{-- <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script> --}}
 
     <script>
         $(document).on("click", "#delete", function(e) {

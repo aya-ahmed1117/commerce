@@ -9,9 +9,9 @@
             <div class="aon-blog-section">
                 <div class="row">
                     <!-- Column 1 -->
-                    @if (count($Plogs) > 0)
+                    @if (count($blogs) > 0)
 
-                    @foreach ($Plogs as $Plog)
+                    @foreach ($blogs as $Plog)
 
                     <div class="col-lg-6 col-md-12 m-b30">
                         <div class="aon-latest-new-one  wow fadeInDown" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-name: fadeInDown;">
@@ -20,12 +20,18 @@
                                 <div class="aon-post-media">
                                     <img title="title" alt="" src="{{asset('storage/' . $Plog->image)}}">
                                 </div>
-                                <div class="aon-post-info">
+                            <div class="aon-post-info">
 
-                                    <div class="aon-post-date">
+                                <div class="aon-post-date">
+                                    @if ($Plog->updated_at != null)
+                                        <span class="date-dd">{{ $Plog->updated_at->format('d')}}</span>
+                                        <span class="date-mm">{{$Plog->updated_at->format('M')}}</span>
+                                        <span class="date-yy">{{ $Plog->updated_at->format('Y') }}
+                                            @else
                                         <span class="date-dd">18</span>
                                         <span class="date-mm">Aug</span>
                                         <span class="date-yy">2022</span>
+                                        @endif
                                     </div>
 
                                     <h4 class="aon-post-title">
@@ -62,7 +68,7 @@
 
 
                 </div>
-                <div class="aon-paging-control">
+                {{-- <div class="aon-paging-control">
 
                     <div class="site-pagination2">
                         <ul class="pagination">
@@ -80,7 +86,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

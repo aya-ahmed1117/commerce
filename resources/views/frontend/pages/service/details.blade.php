@@ -8,15 +8,20 @@
         <div class="site-top-line"></div>
         <div class="container">
             <div class="row">
+                @if (count($Services) > 0)
+                @foreach ($Services as $Service)
+                <p>ID: {{ $Service->id }}</p>
+
+
 
                 <!-- Left part start -->
                 <div class="col-lg-8 col-md-12">
 
                     <div class="aon-service-detail">
                         <div class="aon-service-top-media">
-                            <img src="images/service-detail/large-pic.jpg" alt="">
+                            <img src="{{ asset('storage/' . $Service->image) }}" alt="">
                         </div>
-                        <div class="aon-service-detail-content">
+                        <div class="aon-service-detail-content" id="strategy" >
                             <div class="aon-sd-mid">
                                 <div class="aon-sd-title">
                                     <div class="aon-sd-title-icon">
@@ -69,27 +74,18 @@
 
                         <div class="site-pagination2">
                             <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#">04</a></li>
+                            <li class="page-item">{{ $Services->links() }}</li>
                             </ul>
                         </div>
 
-                        <div class="aon-paging-arrow">
-                            <div class="aon-paging-arrow-inner">
-                                <button type="button"><i class="flaticon-left-arrow"></i></button>
-                                <button type="button"><i class="flaticon-right-arrows"></i></button>
-                            </div>
 
-                        </div>
                     </div>
+                    <br>
 
 
                 </div>
-                <!-- Left part END -->
 
-                <!-- Side bar start -->
+
                 <div class="col-lg-4 col-md-12">
 
                     <aside class="side-bar2 ">
@@ -102,7 +98,8 @@
                                 </div>
                                  <form role="search" method="post">
                                      <div class="input-group">
-                                         <input name="news-letter" type="text" class="form-control" placeholder="Enter your keyword...">
+                                         <input name="news-letter" type="text" class="form-control"
+                                         placeholder="Enter your keyword...">
                                          <span class="input-group-btn">
                                              <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                          </span>
@@ -119,7 +116,7 @@
                                 <h3 class="widget-title">Services List</h3>
                             </div>
                             <ul>
-                                <li><a href="javascript:void(0);">UX strategy</a></li>
+                                <li><a href="#strategy">UX strategy</a></li>
                                 <li class="active"><a href="javascript:void(0);">Information architecture</a></li>
                                 <li><a href="javascript:void(0);">Prototyping</a></li>
                                 <li><a href="javascript:void(0);">Wireframing</a></li>
@@ -129,7 +126,7 @@
                         </div>
 
                         <!-- CATEGORY -->
-                        <div class="widget widget_download-file">
+                        {{-- <div class="widget widget_download-file">
                             <div class="text-left m-b30">
                                 <h3 class="widget-title">Download Now</h3>
                             </div>
@@ -141,9 +138,9 @@
                                 <i class="flaticon-doc"></i> Download DOC File
                             </a>
 
-                        </div>
+                        </div> --}}
 
-                        <div class="aon-widget-help">
+                        {{-- <div class="aon-widget-help">
                             <div class="aon-widget-help-top">
                                 <img src="images/need-help.jpg" alt="">
                                 <div class="aon-widget-help-mid">
@@ -152,14 +149,8 @@
                                 </div>
                             </div>
 
-                            <div class="aon-widget-help-bottom">
-                                <div class="aon-media"><i class="flaticon-telephone"></i></div>
-                                <div class="aon-helpbot-coontent">
-                                    <span>Contact Us 24/7</span>
-                                    <h3>+55 (9900) 666 22</h3>
-                                </div>
-                            </div>
-                        </div>
+
+                        </div> --}}
 
 
 
@@ -168,7 +159,26 @@
                 </div>
                 <!-- Side bar END -->
 
+        @endforeach
+
+                @else
+                <div class="col-lg-3 col-md-6">
+                    <div class="aon-about-box aon-icon-effect">
+                        <div class="aon-about-icon">
+                            <i class="flaticon-paint-palette aon-icon"></i>
+                        </div>
+                        <div class="aon-about-circle"></div>
+                        <h4 class="aon-about-title">No service Found</h4>
+                        <p class="aon-about-text">No service Found</p>
+                        <a class="aon-about-btn" href="javascript:;"><i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                @endif
+
+
             </div>
         </div>
     </div>
+
 @endsection

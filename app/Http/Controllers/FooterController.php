@@ -141,4 +141,4 @@ class FooterController extends Controller
 
                     }
 
-}
+    }

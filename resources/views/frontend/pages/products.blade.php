@@ -50,10 +50,10 @@
 
                             <div class="aon-shop-bot d-flex">
                                 <div class="aon-shop-price">{{$Product->price}} LE</div>
-                                {{-- <div class="aon-shop-add-to d-flex">
+                                <div class="aon-shop-add-to d-flex">
                                     <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
                                     <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>

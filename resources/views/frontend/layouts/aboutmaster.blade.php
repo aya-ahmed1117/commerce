@@ -221,6 +221,8 @@
       </div>
     </div>
 
+
+
     <!-- JAVASCRIPT  FILES ========================================= -->
     <script src="{{asset('assets/frontend/js/jquery-3.6.1.min.js')}}"></script>
     <!-- JQUERY.MIN JS -->

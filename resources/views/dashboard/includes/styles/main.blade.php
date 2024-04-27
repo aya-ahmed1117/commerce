@@ -28,6 +28,9 @@
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{asset('assets/dashboard/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
   <!-- Toastr -->
-  <link rel="stylesheet" href="{{asset('assets/dashboard/plugins/toastr/toastr.min.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('assets/dashboard/plugins/toastr/toastr.min.css')}}"> --}}
+
+
+
   @yield('styles')
     @stack('style')

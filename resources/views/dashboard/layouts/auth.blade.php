@@ -18,9 +18,9 @@
 
       @include('dashboard.pages.auth.forms.login_form')
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
+      {{-- <p class="mb-1">
+        <a href="{{route('forgot')}}">I forgot my password</a>
+      </p> --}}
       <p class="mb-0">
         <a href="{{ url('dashboard/register') }}" class="text-center">Register a new membership</a>
       </p>

@@ -497,9 +497,11 @@
 }
 .feather-navigation:before {
   content: "\e99f";
+  color:red;
 }
 .feather-navigation-2:before {
   content: "\e9a0";
+  color:red;
 }
 .feather-octagon:before {
   content: "\e9a1";

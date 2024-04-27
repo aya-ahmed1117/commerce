@@ -26,7 +26,9 @@
                                 <div class="aon-about-circle"></div>
                                 <h4 class="aon-about-title">{{$Service->title}}</h4>
                                 <p class="aon-about-text">{{$Service->descriptionEN}}</p>
-                                <a class="aon-about-btn" href="javascript:;"><i class="fa fa-angle-right"></i></a>
+                                <a class="aon-about-btn"
+                                   href="{{ route('frontend.service-details',$Service->id) }}" target="_blank">
+                                    <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                         @endforeach

@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Settings;
 use App\Models\Slider;
-use App\Models\Logo;
-
 use
 App\Models\about;
 use Illuminate\Support\Facades\Storage;
@@ -16,110 +13,6 @@ use Illuminate\Support\Facades\Storage;
 class SettingsController extends Controller
 {
     //'dashboard.pages.users'
-
-    public function show_settings(){
-      if (Auth()->check()) {
-        if(Auth()->user()->is_admin == 1){
-          $titles = Settings::all();
-            return view('dashboard.pages.settings.settings',compact('titles'));
-          }
-
-        }else{
-            return view('dashboard.pages.login');
-        }
-    }
-
-//     public function update_logo(request $request){
-//         if($request->file('image')){
-
-
-//             $request->validate([
-//                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-//                 'updated_at' =>now(),
-//             ]);
-// //logo
-//         $imageLogo = time() . '.' . $request->file('image')->getClientOriginalExtension();
-//         $saveLogo = 'logo';
-//         $logo = "$saveLogo/$imageLogo";
-
-//         $request->file('logo')->storeAs("public/$saveLogo", $imageLogo);
-
-
-
-//             $id=$request->id;
-//             logo::findOrFail($id)->update([
-//                 'logo' =>$logo,
-//                 'updated_at'=>now()
-//             ]);
-//             $notification = array(
-//                 'message_id' => 'Done Updated',
-//                 'alert-type' => 'info'
-//             );
-
-
-//         return redirect()->route('show.footer')->with($notification);
-//         }
-
-//     }
-
-    public function update_logo(request $request){
-
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            'created_at' =>now()
-        ]);
-
-
-        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-        $saveFolder = 'logo';
-        $path = "$saveFolder/$imageName";
-
-        $request->file('image')->storeAs("public/$saveFolder", $imageName);
-
-            Logo::insert([
-                'status' => 'status',
-                'image' => $path,
-                'created_at' =>now()
-                ]);
-
-
-            $notification = array(
-                'message_id' => 'Done Updated',
-                'alert-type' => 'info'
-            );
-
-
-        return redirect()->route('show.settings')->with($notification);
-
-
-    }
-
-    public function update_title(request $request){
-      // $request->validate([
-      //   'value'=>'required|string|min:3|max:240',
-      // ]);
-      // dd();
-       $titles = Settings::all();
-
-      $data = $request->except(['_token']);
-
-      foreach ($data as $key => $value) {
-        if(!empty($value)){
-
-        if (settings::where('key', $key)->exists()) {
-          settings::where('key', $key)->update(['value' => $value]);
-        }
-      }
-    }
-
-        $notification = array(
-          'message_id' => 'title has been updated',
-          'alert-type' => 'success'
-      );
-
-
-      return redirect()->route('show.settings',compact('titles'))->with($notification);
-    }
 
 
     public function shows()

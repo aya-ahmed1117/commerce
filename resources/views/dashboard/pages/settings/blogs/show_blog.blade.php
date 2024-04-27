@@ -31,11 +31,11 @@
 
 
                 <div class="card-header">
-                    <h3 class="card-title">Plogs</h3>
+                    <h3 class="card-title">Blogs</h3>
 
                     <div class="card-tools">
                         <div class="input-group-append">
-                            <a href="{{route('store.plog')}}">
+                            <a href="{{route('store.blog')}}">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
                                 +
                               </button>
@@ -64,23 +64,23 @@
                             <th scope="row">{{$aboutus = $about+1 }}</th>
 
                              --}}
-                        @if (count($Plogs) > 0)
+                        @if (count($blogs) > 0)
 
-                             @foreach ($Plogs as $plog=>$aID)
+                             @foreach ($blogs as $plog=>$aID)
                              <tr>
-                                 <th scope="row">{{$Plogs = $plog+1 }}</th>
+                                 <th scope="row">{{$blogs = $plog+1 }}</th>
 
                              <td>{{$aID->title}}</td>
                              <td>{!!$aID->descriptionEN!!}</td>
 
                  <td>
 
-                    <a type="button" class="btn btn-primary" href="{{route('update.plog',$aID->id)}}">
+                    <a type="button" class="btn btn-primary" href="{{route('update.blog',$aID->id)}}">
                         Update
                       </a>
                     </td>
 
-                 <td> <a href="{{ route('delete.plog',$aID->id) }}" class="btn btn-danger" id="delete">حذف</a></td>
+                 <td> <a href="{{ route('delete.blog',$aID->id) }}" class="btn btn-danger" id="delete">حذف</a></td>
                  <td>
                  <div class="media">
                     <img src='{{asset("storage/$aID->image")}}'  class="img-size-50 mr-3 img-circle">
@@ -90,7 +90,7 @@
                      @endforeach
 
                      @else
-                             <p>No Plogs Found</p>
+                             <p>No blogs Found</p>
                      @endif
 
                     </tbody>

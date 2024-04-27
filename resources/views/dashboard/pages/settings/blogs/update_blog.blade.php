@@ -25,24 +25,24 @@
                <div class="card">
                    <div class="card-header bg-primary text-center text-light">الوجبة</div>
 
-                 <form action="{{route('edit.plog',$Plogs->id)}}" method="post" enctype="multipart/form-data">
+                 <form action="{{route('edit.blog',$blogs->id)}}" method="post" enctype="multipart/form-data">
                      @csrf
-                     <input type="hidden"  name="old_image" value="{{ $Plogs->image}}">
+                     <input type="hidden"  name="old_image" value="{{ $blogs->image}}">
                    <div class="card-body text-right">
                        <div class="form-group">
                            <label for="name">اسم الوجبة</label>
-                           <input type="text" class="form-control" value="{{$Plogs->name}}" name="name"
+                           <input type="text" class="form-control" value="{{$blogs->name}}" name="name"
                            placeholder="اسم الوجبة">
                        </div>
                        <div class="form-group">
                         <label for="name">title</label>
-                        <input type="text" class="form-control" value="{{$Plogs->title}}" name="title"
+                        <input type="text" class="form-control" value="{{$blogs->title}}" name="title"
                         placeholder="اسم الوجبة">
                     </div>
                        <div class="form-group">
                            <label for="description">descriptionEN</label>
-                           <textarea class="form-control" value="{{$Plogs->descriptionEN}}"
-                            name="descriptionEN">{{$Plogs->descriptionEN}}</textarea>
+                           <textarea class="form-control" value="{{$blogs->descriptionEN}}"
+                            name="descriptionEN">{{$blogs->descriptionEN}}</textarea>
                        </div>
 
 
@@ -60,7 +60,7 @@
                            </div>
                            <br>
                            <div class="form-group">
-                               <img id="showImage" src="{{asset("storage/$Plogs->image")}}" value="{{asset("storage/$Plogs->image")}}" style="width: 100px; height: 100px;"> </div>
+                               <img id="showImage" src="{{asset("storage/$blogs->image")}}" value="{{asset("storage/$blogs->image")}}" style="width: 100px; height: 100px;"> </div>
 
 
                            <br>

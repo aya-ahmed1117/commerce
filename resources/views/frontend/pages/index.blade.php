@@ -5,6 +5,9 @@
     <!-- SLIDER START -->
     @include('frontend.includes.home.slider')
     <!-- SLIDER END -->
+    @include('frontend.layouts.milk')
+
+
     <!-- START HERO SECTION -->
 
     {{-- @include('frontend.includes.home.hero') --}}
@@ -29,11 +32,25 @@
 
     <!-- START TEAM SECTION -->
     @include('frontend.includes.home.team')
+{{--
+    <img id="avatar" src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" style="position:absolute; z-index:100;" />
+
+    <script lang="javascript">
+function updateAvatarPosition(e) {
+  var avatar = document.getElementById("avatar");
+  avatar.style.left = e.clientX + "px";
+  avatar.style.top = e.clientY + "px";
+}
+
+// Attach the event listener to the window object
+window.addEventListener("mousemove", updateAvatarPosition);
+    </script> --}}
     <!-- START TEAM SECTION -->
 @endsection
 
 @push('js')
 @endpush
+
 
 @push('css')
 @endpush

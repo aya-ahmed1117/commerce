@@ -44,7 +44,7 @@
             <img src="{{ asset('assets/frontend/images/wetaly/122.jpg') }}" alt="" />
         </div>
     </div>
-    <div class="site-bot-line"></div>
+    {{-- <div class="site-bot-line"></div> --}}
 </section>
 <!-- About Section End -->
 
@@ -113,6 +113,6 @@
             </div>
         </div>
     </div>
-    <div class="site-bot-line"></div>
+    {{-- <div class="site-bot-line"></div> --}}
 </section>
 <!-- About 2 Section End -->

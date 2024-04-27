@@ -76,7 +76,7 @@
                 Nulla et aliquam ligula. Praesent vel rhoncus dui, nec
                 aliquet leo.
               </div>
-              <form>
+              {{-- <form>
                 <div class="aon-news-form">
                   <input
                     type="text"
@@ -87,7 +87,7 @@
                     <i class="feather-corner-down-left"></i>
                   </button>
                 </div>
-              </form>
+              </form> --}}
               <ul class="aon-socila-icon d-flex">
                 <li>
                   <a href="{{$SocialFac->link}}" target="_blank">
@@ -120,7 +120,7 @@
       <div class="container">
         <div class="aon-footer-bottom-area">
           <div class="aon-foo-copyright">
-            © Copyright 2022 <span>mikcandy</span> - All Rights Reserved.
+            © Copyright 2024 <span>WeTaly</span> - All Rights Reserved.
           </div>
         </div>
       </div>

@@ -1,12 +1,11 @@
 
-
-
+<!-- jQuery -->
 <script src="{{asset('assets/dashboard/plugins/jquery/jquery.min.js')}}"></script>
-
+<!-- jQuery UI 1.11.4 -->
 <script src="{{asset('assets/dashboard/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-$.widget.bridge('uibutton', $.ui.button)
+  $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('assets/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -34,30 +33,23 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('assets/dashboard/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/dashboard/js/pages/dashboard.js')}}"></script>
-<script src="{{asset('assets/dashboard/js/adminlte.min.js')}}"></script>
-<script src="{{asset('assets/dashboard/plugins/codemirror/codemirror.js')}}"></script>
-<script src="{{asset('assets/dashboard/plugins/codemirror/mode/css/css.js')}}"></script>
-<script src="{{asset('assets/dashboard/plugins/codemirror/mode/xml/xml.js')}}"></script>
-<script src="{{asset('assets/dashboard/plugins/codemirror/mode/htmlmixed/htmlmixed.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
+
+
 
 <script>
-  $(function () {
-    // Summernote
-    $('#summernote').summernote()
-
-    // CodeMirror
-    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-      mode: "htmlmixed",
-      theme: "monokai"
-    });
-  })
-</script>
-
-
+    $(".nav-item a").click(function () {
+  $(".nav-item").dropdown("toggle");
+});
+    // $(".nav-link a").click(function () {
+    //   $(".nav-link").collapse("hide");
+    // });
+    </script>
+@yield('scripts')
+@stack('script')
+{{--
    @yield('scripts')
-   @stack('script')
-   {{-- <script src="{{ asset('assets/dashboard/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+   @stack('script')--}}
+   <script src="{{ asset('assets/dashboard/plugins/datatables/jquery.dataTables.min.js') }}"></script>
    <script src="{{ asset('assets/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
    <script src="{{ asset('assets/dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
    <script src="{{ asset('assets/dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
@@ -69,5 +61,6 @@ $.widget.bridge('uibutton', $.ui.button)
    <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
    <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
    <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-   <script src="{{ asset('assets/dashboard/plugins/toastr/toastr.min.js') }}"></script> --}}
+   <script src="{{ asset('assets/dashboard/plugins/toastr/toastr.min.js') }}"></script>
+
 

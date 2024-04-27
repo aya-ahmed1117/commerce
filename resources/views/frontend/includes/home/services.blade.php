@@ -1,5 +1,7 @@
         <!-- Services Section -->
-
+<br>
+<br>
+<br>
         <section class="aon-news-area p-t0">
             <div class="container">
               <!--Title Section Start-->
@@ -8,25 +10,24 @@
                 <h2 class="aon-title">Our Latest News</h2>
               </div>
               <!--Title Section End-->
-              @if (count($Services) > 0)
-              @foreach ($Services as $Service)
+
 
               <div class="section-content">
                 <div class="owl-carousel latest-news-slider aon-owl-arrow">
+
+                    @if (count($Services) > 0)
+                    @foreach ($Services as $Service)
                   <!--block 1-->
                   <div class="item">
                     <div
                       class="aon-latest-new-one wow fadeInDown"
-                      data-wow-duration="1000ms"
-                    >
+                      data-wow-duration="1000ms">
                       <div class="aon-post-wrap shine-hover">
                         <!-- Content section for blogs start -->
                         <div class="aon-post-media shine-box">
                           <img
                             title="title"
-                            alt=""
-                            src="images/blog/latest-news/pic1.jpg"
-                          />
+                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
                         </div>
                         <div class="aon-post-info">
                           <div class="aon-post-date">
@@ -37,14 +38,12 @@
                           </div>
 
                           <h4 class="aon-post-title">
-                            <a href="blog-detail.html"
-                              >Medical Technology Innovation Center Training
-                              Center</a
+                            <a href=""
+                              >{{$Service->title}}</a
                             >
                           </h4>
                           <p>
-                            New chip traps clusters of migrating tumor cells
-                            asperiortenetur, blanditiis odit.
+                            {{$Service->descriptionEN}}
                           </p>
 
                           <div class="aon-post-meta">
@@ -62,27 +61,146 @@
                       </div>
                     </div>
                   </div>
+                  <div class="item">
+                    <div
+                      class="aon-latest-new-one wow fadeInDown"
+                      data-wow-duration="1000ms">
+                      <div class="aon-post-wrap shine-hover">
+                        <!-- Content section for blogs start -->
+                        <div class="aon-post-media shine-box">
+                          <img
+                            title="title"
+                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
+                        </div>
+                        <div class="aon-post-info">
+                          <div class="aon-post-date">
+                            <i class="flaticon-calendar-1"></i>
+                            <span class="date-dd">18</span>
+                            <span class="date-mm">Aug,</span>
+                            <span class="date-yy">2022</span>
+                          </div>
+
+                          <h4 class="aon-post-title">
+                            <a href=""
+                              >{{$Service->title}}</a
+                            >
+                          </h4>
+                          <p>
+                            {{$Service->descriptionEN}}
+                          </p>
+
+                          <div class="aon-post-meta">
+                            <ul>
+                              <li class="post-author">
+                                <span class="post-author-pic">
+                                  <img src="images/author.jpg" alt="" />
+                                </span>
+                                By <a href="#">Creativemela</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Content section for blogs end -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div
+                      class="aon-latest-new-one wow fadeInDown"
+                      data-wow-duration="1000ms">
+                      <div class="aon-post-wrap shine-hover">
+                        <!-- Content section for blogs start -->
+                        <div class="aon-post-media shine-box">
+                          <img
+                            title="title"
+                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
+                        </div>
+                        <div class="aon-post-info">
+                          <div class="aon-post-date">
+                            <i class="flaticon-calendar-1"></i>
+                            <span class="date-dd">18</span>
+                            <span class="date-mm">Aug,</span>
+                            <span class="date-yy">2022</span>
+                          </div>
+
+                          <h4 class="aon-post-title">
+                            <a href="">{{$Service->title}}</a>
+                          </h4>
+                          <p>
+                            {{$Service->descriptionEN}}
+                          </p>
+
+                          <div class="aon-post-meta">
+                            <ul>
+                              <li class="post-author">
+                                <span class="post-author-pic">
+                                  <img src="images/author.jpg" alt="" />
+                                </span>
+                                By <a href="#">Creativemela</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Content section for blogs end -->
+                      </div>
+                    </div>
+                  </div>
+
                   @endforeach
                   @else
-                  <div
-                  class="aon-service-box shine-hover wow fadeInDown"
-                  data-wow-duration="3000ms" >
-                  <div class="aon-service-content">
-                    <h4 class="aon-service-title">No Service Found</h4>
-                    <p>No Service Found
+                  <div class="item">
+                    <div
+                      class="aon-latest-new-one wow fadeInDown"
+                      data-wow-duration="1000ms">
+                      <div class="aon-post-wrap shine-hover">
+                        <!-- Content section for blogs start -->
+                        <div class="aon-post-media shine-box">
+                          <img
+                            title="title"
+                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
+                        </div>
+                        <div class="aon-post-info">
+                          <div class="aon-post-date">
+                            <i class="flaticon-calendar-1"></i>
+                            <span class="date-dd">18</span>
+                            <span class="date-mm">Aug,</span>
+                            <span class="date-yy">2022</span>
+                          </div>
+
+                          <h4 class="aon-post-title">
+                            <a href=""
+                              >{{$Service->title}}</a
+                            >
+                          </h4>
+                          <p>
+                            {{$Service->descriptionEN}}
+                          </p>
+
+                          <div class="aon-post-meta">
+                            <ul>
+                              <li class="post-author">
+                                <span class="post-author-pic">
+                                  <img src="images/author.jpg" alt="" />
+                                </span>
+                                By <a href="#">Creativemela</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- Content section for blogs end -->
+                      </div>
+                    </div>
                   </div>
-                  <div class="aon-service-pic shine-box">
-                    <img src="{{asset('assets/frontend/images/wetaly/164.jpg')}}" alt="" />
-                  </div>
-                </div>
-              </div>
+
+
                    @endif
 
 
-                </div>
+
               </div>
             </div>
-          </section>
+        </div>
+    </section>
 
 
         {{-- <section class="aon-service-area">
@@ -157,6 +275,6 @@
                 </div>
               </div>
             </div>
-            <div class="site-bot-line"></div>
+            {{-- <div class="site-bot-line"></div> --}}
           </section>
           <!-- Services Section End -->

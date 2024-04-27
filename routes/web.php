@@ -13,7 +13,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PartnersController;
-use App\Http\Controllers\PlogController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SocialController;
 // use App\Http\Controllers\CustomAuthController;
 // use App\Models\Settings;
@@ -46,7 +46,10 @@ use Illuminate\Support\Facades\Auth;
      * @action PagesController@index
      */
     Route::get('/', "PagesController@index")->name('homepage');
+    Route::get('/milk', "PagesController@milk")->name('milk');
     Route::get('sliders', [SliderController::class, 'index']);
+
+
 
     /**
      * Define a route for the 'about' page.
@@ -91,7 +94,7 @@ use Illuminate\Support\Facades\Auth;
      * @uri    /services/details
      * @action PagesController@serviceDetails
      */
-    Route::get('/services/details', "PagesController@serviceDetails")->name('service-details');
+    Route::get('/services/details/{id}', "PagesController@serviceDetails")->name('service-details');
 
     /**
      * Define a route for the 'blogs' page.
@@ -118,6 +121,8 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard'
 route::get('/dashboard/login',[HomeController::class,'getLogen'])->name('getLogen');
 
 Route::post('/dashboard/login',[HomeController::class,'postLogin'])->name('postLogin');
+Route::get('/dashboard/forgot-password',[HomeController::class,'forgot'])->name('forgot');
+
 
 
 
@@ -132,6 +137,16 @@ Route::post('/dashboard/registration', [HomeController::class, 'customRegistrati
     Route::post('/dashboard/logout', [HomeController::class, 'logout'])->name('logout');
  });
 //settings
+Route::get('/dashboard/settings',[SettingsController::class,'show_settings'])->name('show.settings');
+  Route::post('/dashboard/settings/store',[SettingsController::class,'update_title'])->name('update.title');
+//update.logo
+  Route::post('/dashboard/settings',[SettingsController::class,'update_logo'])->name('update.logo');
+
+  //Route::post('/dashboard/update/logo',[SettingsController::class,'update_logo'])->name('update.logo');
+
+
+
+
 // users
 Route::get('/dashboard/users',[SettingsController::class,'shows'])->name('show.user');
 //add user
@@ -197,13 +212,13 @@ Route::get('/dashboard/teams',[TeamController::class,'show_teams'])->name('show.
     Route::post('/dashboard/teams/edit/{id}',[TeamController::class,'edit_teams'])->name('edit.team');
     Route::get('/dashboard/teams/store/delete/{id}',[TeamController::class,'delete_teams'])->name('delete.team');
 
-// show plog
-Route::get('/dashboard/plog',[PlogController::class,'show_plog'])->name('show.plog');
-    Route::get('/dashboard/plog/store',[PlogController::class,'store_plog'])->name('store.plog');
-    Route::post('/dashboard/plog/store/add',[PlogController::class,'add_plog'])->name('add.plog');
-    Route::get('/dashboard/plog/updated/{id}',[PlogController::class,'update_plog'])->name('update.plog');
-    Route::post('/dashboard/plog/edit/{id}',[PlogController::class,'edit_plog'])->name('edit.plog');
-    Route::get('/dashboard/plog/store/delete/{id}',[PlogController::class,'delete_plog'])->name('delete.plog');
+// show Blog
+Route::get('/dashboard/Blog',[BlogController::class,'show_blog'])->name('show.blog');
+    Route::get('/dashboard/Blog/store',[BlogController::class,'store_blog'])->name('store.blog');
+    Route::post('/dashboard/Blog/store/add',[BlogController::class,'add_blog'])->name('add.blog');
+    Route::get('/dashboard/Blog/updated/{id}',[BlogController::class,'update_blog'])->name('update.blog');
+    Route::post('/dashboard/Blog/edit/{id}',[BlogController::class,'edit_blog'])->name('edit.blog');
+    Route::get('/dashboard/Blog/store/delete/{id}',[BlogController::class,'delete_blog'])->name('delete.blog');
 // show partners
 Route::get('/dashboard/partners',[PartnersController::class,'show_partner'])->name('show.partner');
     Route::get('/dashboard/partners/store',[PartnersController::class,'store_partner'])->name('store.partner');

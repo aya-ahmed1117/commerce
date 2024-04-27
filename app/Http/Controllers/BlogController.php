@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Plog;
+use App\Models\blog;
 
 
-class PlogController extends Controller
+class BlogController extends Controller
 {
-    public function show_plog(){
+    public function show_blog(){
 
         if (Auth()->check()) {
             if(Auth()->user()->is_admin == 1){
 
-                $Plogs= Plog::all();
-                return view('dashboard.pages.settings.plogs.show_plog',compact('Plogs'));
+                $blogs= blog::all();
+                return view('dashboard.pages.settings.blogs.show_blog',compact('blogs'));
               }
 
             }else{
@@ -23,10 +23,10 @@ class PlogController extends Controller
             }
 
             }
-            public function store_plog(){
+            public function store_blog(){
                 if (Auth()->check()) {
                     if(Auth()->user()->is_admin == 1){
-                        return view('dashboard.pages.settings.plogs.add_plog');
+                        return view('dashboard.pages.settings.blogs.add_blog');
                     }
 
                     }else{
@@ -35,7 +35,7 @@ class PlogController extends Controller
                     }
             }
 
-            public function add_plog(request $request){
+            public function add_blog(request $request){
 
                 $request->validate([
                     'name'=>'string|min:3|max:250',
@@ -50,14 +50,14 @@ class PlogController extends Controller
 
                 // $datafile_path='public/images/';
                 $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-                $saveFolder = 'plog';
+                $saveFolder = 'blog';
                 $path = "$saveFolder/$imageName";
 
                 $request->file('image')->storeAs("public/$saveFolder", $imageName);
 
-                $request->validate(['name' =>'required|string|unique:plogs|min:3|max:40',
+                $request->validate(['name' =>'required|string|unique:blogs|min:3|max:40',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
-                Plog::insert([
+                blog::insert([
                     'name' => $request->name,
                     'title' => $request->title,
                     'image' => $path,
@@ -67,16 +67,16 @@ class PlogController extends Controller
                     'created_at' =>now()
                     ]);
 
-                    return redirect()->route('show.plog')->with('message','Done Added');
+                    return redirect()->route('show.blog')->with('message','Done Added');
             }
-            public function update_plog($id){
+            public function update_blog($id){
 
                 if (Auth()->check()) {
                     if(Auth()->user()->is_admin == 1){
 
-                $Plogs = Plog::find($id);
+                $blogs = blog::find($id);
 
-                return view('dashboard.pages.settings.plogs.update_plog' , compact('Plogs'));
+                return view('dashboard.pages.settings.blogs.update_blog' , compact('blogs'));
                     }
 
                     }else{
@@ -86,7 +86,7 @@ class PlogController extends Controller
 
             }
 
-            public function edit_plog(request $request , $id){
+            public function edit_blog(request $request , $id){
 
                 if($request->file('image')){
 
@@ -102,13 +102,13 @@ class PlogController extends Controller
                     ]);
 
                     $imageName2 = time() . '.' . $request->file('image')->getClientOriginalExtension();
-                    $saveFolder2 = 'plog';
+                    $saveFolder2 = 'blog';
                     $path2 = "$saveFolder2/$imageName2";
 
                     $request->file('image')->storeAs("public/$saveFolder2", $imageName2);
 
                     $id=$request->id;
-                        Plog::findOrFail($id)->update([
+                        blog::findOrFail($id)->update([
                             'name'=>$request->name,
                             'title'=>$request->title,
                             'descriptionAR' => $request->descriptionAR,
@@ -123,12 +123,12 @@ class PlogController extends Controller
                         );
 
 
-                return redirect()->route('show.plog')->with($notification);
+                return redirect()->route('show.blog')->with($notification);
 
 
                 }
                 else{
-                    Plog::findOrFail($id)->update([
+                    blog::findOrFail($id)->update([
                         'name'=>$request->name,
                         'title'=>$request->title,
                         'descriptionAR' => $request->descriptionAR,
@@ -141,19 +141,19 @@ class PlogController extends Controller
                             'alert-type' => 'info'
                         );
 
-                return redirect()->route('show.plog')->with($notification);
+                return redirect()->route('show.blog')->with($notification);
             }
 
                 }
-                public function delete_plog( $id){
-                    Plog::findOrFail($id)->delete();
+                public function delete_blog( $id){
+                    blog::findOrFail($id)->delete();
 
                     $notification = array(
                         'message_id' => 'Done Deleted',
                         'alert-type' => 'info'
                     );
 
-                return redirect()->route('show.plog')->with($notification);
+                return redirect()->route('show.blog')->with($notification);
 
                     }
 }

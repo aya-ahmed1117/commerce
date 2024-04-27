@@ -40,7 +40,7 @@
           <!--Logo section start-->
           <div class="logo-header">
             <div class="logo-header-inner logo-header-one">
-              <a href="{{url('/')}}">
+              <a href="{{ route('frontend.homepage') }}">
                 <img src="{{asset('assets/frontend/images/wetaly/186-removebg-preview.png')}}" alt="" />
               </a>
             </div>
@@ -62,20 +62,25 @@
 
           <!-- MAIN Vav -->
           <div
-            class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center"
-          >
+            class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
             <ul class="nav navbar-nav">
               <li class="current-menu-item">
                 <a href="{{ route('frontend.homepage') }}">Home </a>
               </li>
               <li><a href="{{ route('frontend.about') }}">About us</a></li>
-              <li class="has-child">
-                <a href="javascript:;">Services</a>
-                <ul class="sub-menu">
-                  <li><a href="{{ route('frontend.services') }}">Services</a></li>
-                  {{-- <li><a href="{{ route('frontend.service-details') }}">Service detail</a></li> --}}
-                </ul>
-              </li>
+             @if (Auth()->check())
+                    @if(Auth()->user()->is_admin == 1)
+                <li class="has-child">
+                    <a href="javascript:;">Services</a>
+                    <ul class="sub-menu">
+                    <li><a href="{{ route('frontend.services') }}">Services</a></li>
+                    {{-- <li><a href="{{ route('frontend.service-details') }}">Service detail</a></li> --}}
+                    </ul>
+                </li>
+
+            @endif
+
+            @endif
 
               <li class="">
                 <a href="{{ route('frontend.products') }}">Products</a>
@@ -89,6 +94,12 @@
                 </ul>
               </li>
               <li><a href="{{ route('frontend.contact') }}">Contact us</a></li>
+
+              @if (Auth()->check())
+              <li><a href=""> <samp style="color: green;">Welcome:</samp> {{ Auth::user()->name }}</a></li>
+
+              @endif
+
             </ul>
           </div>
 
@@ -134,6 +145,7 @@
               </div>
             </div>
           </div>--}}
+
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\product;
-use App\Models\Plog;
+use App\Models\blog;
 use App\Models\Service;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Contracts\Session\Session;
@@ -72,17 +72,20 @@ class HomeController extends Controller
         if (Auth()->check()) {
             if(Auth()->user()->is_admin == 1){
                 $Allproduct = product::count();
-                $AllPlog = Plog::count();
+                $Allblog = blog::count();
                 $AllService = Service::count();
                 $AllUser = user::count();
             return view('dashboard.pages.home',
-            compact('Allproduct','AllPlog','AllService','AllUser'));
+            compact('Allproduct','Allblog','AllService','AllUser'));
               }
 
             }else{
                 return view('dashboard.pages.login');
             }
 
+    }
+    public function forgot(){
+        return view('auth.forgot-password');
     }
     public function getLogen(){
         return view('dashboard.pages.login');

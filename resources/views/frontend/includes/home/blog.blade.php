@@ -24,9 +24,9 @@
     <div class="aon-farm-blog-section">
         <div class="row d-flex justify-content-center">
             <!-- COLUMNS 1 -->
-            @if (count($Plogs_home) > 0)
+            @if (count($blogs_home) > 0)
 
-                @foreach ($Plogs_home as $Plog)
+                @foreach ($blogs_home as $Plog)
 
             <div class="col-lg-4 col-md-6">
             <div
@@ -43,18 +43,19 @@
                     {{-- created_at --}}
                 @if ($Plog->updated_at != null)
 
-                    @if ($Plog->updated_at)
+                    {{-- @if ($Plog->updated_at) --}}
                     <span class="date-dd">{{ $Plog->updated_at->format('d')}}</span>
                     <span class="date-mm">{{$Plog->updated_at->format('M')}}</span>
                     <span class="date-yy">{{ $Plog->updated_at->format('Y') }}
                     </span>
-                @endif
+                {{-- @endif --}}
             @else
 
-                @endif
+
                         <span class="date-dd">18</span>
                         <span class="date-mm">Aug</span>
                         <span class="date-yy">2023</span>
+                        @endif
                     </div>
 
                     <div class="post-text">
@@ -115,7 +116,7 @@
             </div>
         </div>
     </div>
-    <div class="site-bot-line2"></div>
+    {{-- <div class="site-bot-line2"></div> --}}
 </section>
 
 <!-- Blog Section End -->
