@@ -5,7 +5,6 @@
     <!-- SLIDER START -->
     @include('frontend.includes.home.slider')
     <!-- SLIDER END -->
-    @include('frontend.layouts.milk')
 
 
     <!-- START HERO SECTION -->

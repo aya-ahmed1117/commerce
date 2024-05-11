@@ -16,19 +16,36 @@
 
           <div class="aon-topbar-right d-flex flex-wrap">
             <ul class="topbar-social-icons list-unstyled m-0">
-              <li>
-                <a href="{{$SocialFac->link}}" class="fa fa-facebook"></a>
-              </li>
-              <li>
-                <a href="{{$SocialTwi->link}}" class="fa fa-twitter"></a>
-              </li>
-              <li>
-                <a href="{{$SocialInsta->link}}"class="fa fa-instagram"></a>
-              </li>
+                <li>
+                    @if(empty($SocialFac))
+                      <a href="www.facebook.com" class="fa fa-facebook"></a>
+                    @else
+                      <a href="{{$SocialFac->link}}" class="fa fa-facebook"></a>
+                     @endif
+                    </li>
+                    <li>
+                      @if(empty($SocialTwi))
+                      <a href="www.twitter.com" class="fa fa-twitter"></a>
+                    @else
+                      <a href="{{$SocialTwi->link}}" class="fa fa-twitter"></a>
+                      @endif
+                    </li>
+                    <li>
+                      @if(empty($SocialInsta))
+                      <a href="www.instagram.com" class="fa fa-instagram"></a>
+                    @else
+                      <a href="{{$SocialInsta->link}}"class="fa fa-instagram"></a>
+                      @endif
+                    </li>
 
-              <li>
-                <a href="{{$SocialYout->link}}" class="fa fa-youtube"></a>
-              </li>
+                    <li>
+                      @if(empty($SocialYout))
+                      <a href="www.youtube.com" class="fa fa-youtube"></a>
+                    @else
+                      <a href="{{$SocialYout->link}}" class="fa fa-youtube"></a>
+                      @endif
+                    </li>
+
             </ul>
           </div>
         </div>
@@ -41,7 +58,12 @@
           <div class="logo-header">
             <div class="logo-header-inner logo-header-one">
               <a href="{{ route('frontend.homepage') }}">
-                <img src="{{asset('assets/frontend/images/wetaly/186-removebg-preview.png')}}" alt="" />
+                @if(empty($logo))
+
+                <img src="{{asset('assets/frontend/images/wetaly/186-removebg-preview.png')}}"   alt="" />
+                @else
+                <img src="{{ asset('storage/'.$logo->image) }}"  alt="" />
+                @endif
               </a>
             </div>
           </div>
@@ -95,47 +117,59 @@
               </li>
               <li><a href="{{ route('frontend.contact') }}">Contact us</a></li>
 
+
+{{--
               @if (Auth()->check())
               <li><a href=""> <samp style="color: green;">Welcome:</samp> {{ Auth::user()->name }}</a></li>
 
-              @endif
+              @endif --}}
 
             </ul>
           </div>
 
-          <!-- Header Right Section-->
-          {{-- <div class="extra-nav header-2-nav">
+
+                {{-- <a href="#" class="aon-btn-search">
+                  <i class="flaticon-search"></i>
+                </a> --}}
+                <!-- SITE Search -->
+               <div >
+
+                        @guest
+                        @if (Route::has('postLogin'))
+                            {{-- <li class="nav-item "> --}}
+                                <a class="btn btn-success" href="{{ route('postLogin') }}">{{ __('Sign In') }}   </a>
+                            {{-- </li> --}}
+                        @endif
+
+                    @else
+                        {{-- <li class="nav-item dropdown"> --}}
+                            <a id="navbarDropdown1" class="dropdown-toggle"
+                            role="button" data-toggle="dropdown1" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        {{-- </li> --}}
+                    @endguest
+
+
+                </div>
+               <!-- Header Right Section-->
+          <div class="extra-nav header-2-nav" style="margin-left: 20px;">
             <div class="extra-cell">
               <!--Sign up-->
               <div class="cart-add-btn">
-                <a href="#" class="aon-btn-search">
-                  <i class="flaticon-search"></i>
-                </a>
-                <!-- SITE Search -->
-               <div id="search">
-                  <span class="aon-seach-close"></span>
-                  <form
-                    role="search"
-                    id="searchform"
-                    action="/search"
-                    method="get"
-                    class="radius-xl"
-                  >
-                    <input
-                      class="form-control"
-                      value=""
-                      name="q"
-                      type="search"
-                      placeholder="Type to search"
-                    />
-                    <span class="input-group-append">
-                      <button type="button" class="search-btn">
-                        <i class="flaticon flaticon-search"></i>
-                      </button>
-                    </span>
-                  </form>
-                </div>
-              </div>
               <!--Add Listing up-->
               <div class="cart-add-btn aon-btn-woocart">
                 <span class="cart-add-pic">
@@ -144,10 +178,58 @@
                 <span class="cart-add-num">0</span>
               </div>
             </div>
-          </div>--}}
+
+
+
+          </div>
 
         </div>
-      </div>
-    </div>
+
+
   </header>
+
+  <script>
+    // Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all dropdown toggles
+    var dropdownToggles = document.querySelectorAll('[data-toggle="dropdown1"]');
+
+    // Add event listeners to each dropdown toggle
+    dropdownToggles.forEach(function(toggle) {
+        // Add event listener for click event
+        toggle.addEventListener("click", function(event) {
+            // Prevent default action of the toggle
+            event.preventDefault();
+
+            // Get the dropdown menu associated with this toggle
+            var dropdownMenu = toggle.nextElementSibling;
+
+            // Toggle the visibility of the dropdown menu
+            if (dropdownMenu.classList.contains("show")) {
+                // Hide the dropdown menu
+                dropdownMenu.classList.remove("show");
+            } else {
+                // Hide all other open dropdown menus
+                var openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                openDropdowns.forEach(function(openDropdown) {
+                    openDropdown.classList.remove("show");
+                });
+
+                // Show the dropdown menu
+                dropdownMenu.classList.add("show");
+            }
+        });
+
+        // Add event listener to close dropdown when clicking outside
+        // document.addEventListener("click", function(event) {
+        //     var target = event.target;
+        //     if (!toggle.contains(target) && !dropdownMenu.contains(target)) {
+        //         dropdownMenu.classList.remove("show");
+        //     }
+        // });
+    });
+});
+
+</script>
+
 <!-- HEADER END -->

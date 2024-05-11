@@ -70,9 +70,8 @@
 
             <div class="input-group mb-3">
                 {{-- <label for="is_admin" class="col-md-4 col-form-label text-md-end">{{ __('role id') }}</label> --}}
-                    <select id="is_admin" type="text" class="form-control @error('is_admin') is-invalid @enderror"
-                    name="is_admin" value="{{ old('is_admin') }}">
-                        <option selected="" value="" disabled="">نوع المستخدم</option>
+                    <select id="is_admin" type="text" class="form-control" name="is_admin" >
+                        <option selected="" disabled="">نوع المستخدم</option>
                         <option value="0">عميل</option>
                         <option value="1"> موظف</option>
                     </select>

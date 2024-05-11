@@ -35,9 +35,13 @@
                 </div>
             </div>
             <div class="product-listing-area">
+                <form action="{{ route('add.cart') }}" method="post">
+                    @csrf
                 <div class="row">
+
                     @if (count($Products)>0)
                     @foreach ($Products as $Product)
+
                     <div class="col-lg-3 col-md-6">
                         <div class="aon-shop-box">
                             <div class="aon-shop-pic">
@@ -45,22 +49,23 @@
                             </div>
                             <h4 class="aon-shop-title">{{$Product->name}}</h4>
                             <p class="aon-shop-text">{{$Product->name}}</p>
-
-
-
+                                <input type="hidden" name="product_id" value="{{ $Product->id }}">
+                                <input type="hidden" name="price" value="{{ $Product->price }}">
+                                <input type="hidden" name="quantities" value="1">
                             <div class="aon-shop-bot d-flex">
                                 <div class="aon-shop-price">{{$Product->price}} LE</div>
                                 <div class="aon-shop-add-to d-flex">
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button>
-                                    <button class="aon-shop-btn" type="button"><i class="fa fa-cart-plus"></i></button>
+                                    {{-- <button class="aon-shop-btn" type="button"><i class="fa fa-heart"></i></button> --}}
+                                    <button class="aon-shop-btn" type="submit"><i class="fa fa-cart-plus"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
+
                     @else
                     <div class="aon-shop-box">
-                        <h4 class="aon-shop-title"> لا يوجد بيانات </h4>
+                        <h4 class="aon-shop-title"> No Data Found </h4>
                     </div>
                      @endif
 {{--
@@ -85,6 +90,7 @@
 
 
                 </div>
+            </form>
             </div>
         </div>
     </div>

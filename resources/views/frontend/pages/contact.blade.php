@@ -9,7 +9,7 @@
         <div class="container">
 
             <div class="aon-con-map ">
-                {!!$Contactus->map!!}
+                {!!optional($Contactus)->map!!}
 
                 <!--Google Map-->
                 {{-- <iframe class="grayscle-area"
@@ -33,10 +33,14 @@
                         <li class="d-flex">
                             <div class="aon-con-icon">
                                 <i class="flaticon-telephone"></i>
-                            </div>
+                            </div> @if(empty($SocialInsta))
+                            <a href="www.instagram.com" class="fa fa-instagram"></a>
+                          @else
+                            <a href="{{$SocialInsta->link}}"class="fa fa-instagram"></a>
+                            @endif
                             <div class="aon-con-text">
                                 <span>Contact Phone</span>
-                                <strong>{{$Contactus->phone}}</strong>
+                                <strong>{{ optional($Contactus)->phone }}</strong>
                             </div>
                         </li>
                         <!--Email-->
@@ -46,7 +50,7 @@
                             </div>
                             <div class="aon-con-text">
                                 <span>Contact Mail</span>
-                                <strong>{{$Contactus->email}}</strong>
+                                <strong>{{ optional($Contactus)->email }}</strong>
                             </div>
                         </li>
                         <!--Address-->
@@ -56,7 +60,7 @@
                             </div>
                             <div class="aon-con-text">
                                 <span>Contact Location</span>
-                                <strong>{{$Contactus->address}}</strong>
+                                <strong>{{ optional($Contactus)->address }}</strong>
                             </div>
                         </li>
                     </ul>

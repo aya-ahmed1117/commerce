@@ -2,7 +2,8 @@
 
 // use App\Http\Controllers\Auth\RegisterController;
 // use Facade\FlareClient\View;
-
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HomeController;
@@ -15,7 +16,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SocialController;
-// use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\CartController;
 // use App\Models\Settings;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,30 @@ use Illuminate\Support\Facades\Auth;
  */
   Auth::routes();
   Route::group(['prefix' => '/', 'as' => 'frontend.', 'namespace' => 'App\Http\Controllers\Frontend'], function () {
+
+
+    Route::get('qr-code-g', function () {
+        $blah_blah = QrCode::generate('Hello, uououo!') ;
+        //  QrCode::size(500)
+        //     ->format('png')
+        //     ->generate('www.google.com', public_path('images/qrcode.png'));
+
+        return view('dashboard.pages.qrCode',compact('blah_blah'));
+
+        // $qrCode = Image::canvas(200, 200, '#ffffff')
+        //     ->text('Hello, World!', 100, 100, function ($font) {
+        //         $font->file(base_path('vendor/simplesoftwareio/simple-qrcode/assets/fonts/Orbitron-Bold.ttf'));
+        //         $font->size(20);
+        //         $font->color('#000000');
+        //         $font->align('center');
+        //         $font->valign('middle');
+        //     })
+        //     ->encode('png', 90);
+
+        // return response($qrCode, 200)
+        //     ->header('Content-Type', 'image/png');
+
+    });
 
     /**
      * Define a route for the homepage.
@@ -86,6 +111,10 @@ use Illuminate\Support\Facades\Auth;
      * @action PagesController@services
      */
     Route::get('/services', "PagesController@services")->name('services');
+    Route::get('/commerce', "PagesController@commerce")->name('commerce');
+    // Route::get('/commerce',function(){
+    //     return view('frontend.pages.e-commerce.cart');
+    // });
 
     /**
      * Define a route for the details of a service.
@@ -95,6 +124,8 @@ use Illuminate\Support\Facades\Auth;
      * @action PagesController@serviceDetails
      */
     Route::get('/services/details/{id}', "PagesController@serviceDetails")->name('service-details');
+    // Route::get('/dashboard/service/updated/{id}',[ServiceController::class,'update_service'])->name('update.service');
+
 
     /**
      * Define a route for the 'blogs' page.
@@ -114,7 +145,22 @@ use Illuminate\Support\Facades\Auth;
      * @action PagesController@blogDetails
      */
     Route::get('/blog/details', "PagesController@blogDetails")->name('blog-details');
+
+    //show_cart
+Route::get('/cart', "PagesController@cart")->name('show.cart');
+//cart.remove
+// Route::get('cart/delete/{id}',"PagesController@delete")->name('delete.cart');
+
+
 });
+
+
+Route::get('/cart/delete/{id}' , [CartController::class ,'delete'])->name('delete.cart');
+//check_out
+Route::post('/cart/add' , [CartController::class ,'check_out'])->name('check.out');
+
+
+////dashboard
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
@@ -142,7 +188,8 @@ Route::get('/dashboard/settings',[SettingsController::class,'show_settings'])->n
 //update.logo
   Route::post('/dashboard/settings',[SettingsController::class,'update_logo'])->name('update.logo');
 
-  //Route::post('/dashboard/update/logo',[SettingsController::class,'update_logo'])->name('update.logo');
+
+
 
 
 
@@ -261,5 +308,16 @@ Route::get('/dashboard/footer',[FooterController::class,'show_footer'])->name('s
 
 
 
+    Route::get('/dashboard/commerce', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/dashboard/commerce/', [CartController::class, 'addToCart'])->name('add.cart');
 
+//     Route::get('/', [ProductController::class, 'index']);
+
+// Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+
+// Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+
+// Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+
+// Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 

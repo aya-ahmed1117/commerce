@@ -25,9 +25,13 @@
                       <div class="aon-post-wrap shine-hover">
                         <!-- Content section for blogs start -->
                         <div class="aon-post-media shine-box">
-                          <img
-                            title="title"
-                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
+                            {{-- @if(empty($Service)) --}}
+                          {{-- <img
+                            title="title" alt="" src="{{ asset('/frontend/images/wetaly/186.jpg') }}" /> --}}
+                            {{-- @else --}}
+                            <img
+                            title="title" alt="" src="{{ asset('storage/' . $Service->image) }}"/>
+                            {{-- @endif --}}
                         </div>
                         <div class="aon-post-info">
                           <div class="aon-post-date">
@@ -61,91 +65,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="item">
-                    <div
-                      class="aon-latest-new-one wow fadeInDown"
-                      data-wow-duration="1000ms">
-                      <div class="aon-post-wrap shine-hover">
-                        <!-- Content section for blogs start -->
-                        <div class="aon-post-media shine-box">
-                          <img
-                            title="title"
-                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
-                        </div>
-                        <div class="aon-post-info">
-                          <div class="aon-post-date">
-                            <i class="flaticon-calendar-1"></i>
-                            <span class="date-dd">18</span>
-                            <span class="date-mm">Aug,</span>
-                            <span class="date-yy">2022</span>
-                          </div>
-
-                          <h4 class="aon-post-title">
-                            <a href=""
-                              >{{$Service->title}}</a
-                            >
-                          </h4>
-                          <p>
-                            {{$Service->descriptionEN}}
-                          </p>
-
-                          <div class="aon-post-meta">
-                            <ul>
-                              <li class="post-author">
-                                <span class="post-author-pic">
-                                  <img src="images/author.jpg" alt="" />
-                                </span>
-                                By <a href="#">Creativemela</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <!-- Content section for blogs end -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div
-                      class="aon-latest-new-one wow fadeInDown"
-                      data-wow-duration="1000ms">
-                      <div class="aon-post-wrap shine-hover">
-                        <!-- Content section for blogs start -->
-                        <div class="aon-post-media shine-box">
-                          <img
-                            title="title"
-                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
-                        </div>
-                        <div class="aon-post-info">
-                          <div class="aon-post-date">
-                            <i class="flaticon-calendar-1"></i>
-                            <span class="date-dd">18</span>
-                            <span class="date-mm">Aug,</span>
-                            <span class="date-yy">2022</span>
-                          </div>
-
-                          <h4 class="aon-post-title">
-                            <a href="">{{$Service->title}}</a>
-                          </h4>
-                          <p>
-                            {{$Service->descriptionEN}}
-                          </p>
-
-                          <div class="aon-post-meta">
-                            <ul>
-                              <li class="post-author">
-                                <span class="post-author-pic">
-                                  <img src="images/author.jpg" alt="" />
-                                </span>
-                                By <a href="#">Creativemela</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <!-- Content section for blogs end -->
-                      </div>
-                    </div>
-                  </div>
-
                   @endforeach
                   @else
                   <div class="item">
@@ -156,8 +75,7 @@
                         <!-- Content section for blogs start -->
                         <div class="aon-post-media shine-box">
                           <img
-                            title="title"
-                            alt="" src="{{ asset('storage/' . $Service->image) }}"/>
+                            title="title"alt="" src="{{ asset('/frontend/images/wetaly/186.jpg') }}" />
                         </div>
                         <div class="aon-post-info">
                           <div class="aon-post-date">
@@ -169,11 +87,11 @@
 
                           <h4 class="aon-post-title">
                             <a href=""
-                              >{{$Service->title}}</a
+                              >No DATA Found</a
                             >
                           </h4>
                           <p>
-                            {{$Service->descriptionEN}}
+                            No DATA Found
                           </p>
 
                           <div class="aon-post-meta">

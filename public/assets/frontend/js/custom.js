@@ -8,9 +8,13 @@ All JavaScript fuctions Start
 ---------------------------------------------------------------------------------------------*/
   // > TouchSpin box function by  = jquery.bootstrap-touchspin.js =============== //
   function input_number_demo3() {
-    jQuery("input[name='itm-Quantity']").TouchSpin();
+    jQuery("input[name='quantities']").TouchSpin();
+    // jQuery("input[name='itm-Quantity']").TouchSpin();
   }
-
+  function input_number_demo3() {
+    jQuery("input[name='quantity']").TouchSpin();
+    // jQuery("input[name='itm-Quantity']").TouchSpin();
+  }
   // Wow Animate function by = owl.js
   function wow_animate() {
     var wow = new WOW({

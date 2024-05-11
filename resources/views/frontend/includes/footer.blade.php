@@ -38,16 +38,14 @@
             <img src="{{asset('assets/frontend/images/wetaly/186-removebg-preview.png')}}" alt="" />
           </div>
 
-
-
-
               <div class="aon-footer-text">
                 Morbi vehicula luctus feugiat. In sapien id odio tempor
                 iaculis.
               </div>
               <ul class="aon-footer-coinfo">
-                <li><i class="feather-phone-call"></i>{{$Contactus->phone}}</li>
-                <li><i class="feather-mail"></i>{{$Contactus->email}}</li>
+                <li><i class="feather-phone-call"></i> {{ optional($Contactus)->phone }}
+                </li>
+                <li><i class="feather-mail"></i>{{ optional($Contactus)->email }}</li>
               </ul>
             </div>
           </div>
@@ -90,24 +88,35 @@
               </form> --}}
               <ul class="aon-socila-icon d-flex">
                 <li>
-                  <a href="{{$SocialFac->link}}" target="_blank">
-                    <i class="feather-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="{{$SocialTwi->link}}"
-                    ><i class="feather-twitter"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="{{$SocialYout->link}}"
-                    ><i class="feather-youtube"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="{{$SocialInsta->link}}"
-                    ><i class="feather-instagram"></i
-                  ></a>
-                </li>
+                    @if(empty($SocialFac))
+                      <a href="www.facebook.com" class="fa fa-facebook"></a>
+                    @else
+                      <a href="{{$SocialFac->link}}" class="fa fa-facebook"></a>
+                     @endif
+                    </li>
+                    <li>
+                      @if(empty($SocialTwi))
+                      <a href="www.twitter.com" class="fa fa-twitter"></a>
+                    @else
+                      <a href="{{$SocialTwi->link}}" class="fa fa-twitter"></a>
+                      @endif
+                    </li>
+                    <li>
+                      @if(empty($SocialInsta))
+                      <a href="www.instagram.com" class="fa fa-instagram"></a>
+                    @else
+                      <a href="{{$SocialInsta->link}}"class="fa fa-instagram"></a>
+                      @endif
+                    </li>
+
+                    <li>
+                      @if(empty($SocialYout))
+                      <a href="www.youtube.com" class="fa fa-youtube"></a>
+                    @else
+                      <a href="{{$SocialYout->link}}" class="fa fa-youtube"></a>
+                      @endif
+                    </li>
+
               </ul>
             </div>
           </div>

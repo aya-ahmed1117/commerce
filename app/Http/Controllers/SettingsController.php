@@ -21,7 +21,12 @@ class SettingsController extends Controller
       if (Auth()->check()) {
         if(Auth()->user()->is_admin == 1){
           $titles = Settings::all();
-            return view('dashboard.pages.settings.settings',compact('titles'));
+        //   $logo = logo::all();
+            $logo = logo::all()->last();
+            $lastId = $logo ? $logo->id : null;
+// echo "Last ID: " . $lastId;
+        //   $logo = logo::limit(1)->first();
+            return view('dashboard.pages.settings.settings',compact('titles','logo'));
           }
 
         }else{

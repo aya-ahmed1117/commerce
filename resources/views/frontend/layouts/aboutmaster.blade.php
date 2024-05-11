@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
+    {{-- @foreach ($data as $key => $value) {
+        @if(!empty($value)){
+
+        @elseif(settings::where('key', $key)->exists()) {
+          settings::where('key', $key)->update(['value' => $value]);
+        }
+      }
+    }
+    @endif
+    @endforeach --}}
     <!-- META -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="{{$keywordsSetting}}" />
     <meta name="author" content="" />
     <meta name="robots" content="" />
     <meta name="description" content="" />
@@ -90,7 +100,7 @@
         </div>
         <div class="aon-woocart-inner">
           <div class="aon-woocart-header">
-            <div class="aon-woocart-head-left"><h4>Booking Summery</h4></div>
+            <div class="aon-woocart-head-left"><h4>Order Summery</h4></div>
             <div class="aon-woocart-head-right">
               Clear All <i class="feather-x"></i>
             </div>
@@ -98,118 +108,55 @@
           <div class="aon-woocart-body">
             <div class="aon-woocart-body-mini-cart-scroll">
               <ul class="woocommerce-mini-cart cart_list product_list_widget">
+
+            @if (count($orders) > 0)
+                @foreach ($orders as $order)
+                    @php
+                      $product = $Products->where('id', $order->product_id)->first();
+                    @endphp
+
+                <div class="product">
+                    @if ($product)
                 <li class="woocommerce-mini-cart-item mini_cart_item">
                   <a href="#" class="remove remove_from_cart_button">×</a>
-                  <a class="woocommerce-price-title" href="#"
-                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
-                    Marble Lamp</a
-                  >
+                  <a class="woocommerce-price-title" href="#">
+                    <img src="{{asset("storage/$product->image")}}"alt="" />{{ $product->name }}</a>
                   <span class="quantity"
-                    >1 ×
+                    >{{ $product->quantity }} ×
                     <span class="woocommerce-price-amount amount">
-                      <bdi
-                        ><span class="woocommerce-Price-currencySymbol">$</span
-                        >336.39</bdi
-                      >
+                      <bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $product->price }}
+                        </bdi>
                     </span>
                   </span>
                 </li>
+                @endif
+                @endforeach
+                @else
                 <li class="woocommerce-mini-cart-item mini_cart_item">
-                  <a href="#" class="remove remove_from_cart_button">×</a>
-                  <a class="woocommerce-price-title" href="#"
-                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
-                    Marble Lamp</a
-                  >
-                  <span class="quantity"
-                    >1 ×
-                    <span class="woocommerce-price-amount amount">
-                      <bdi
-                        ><span class="woocommerce-Price-currencySymbol">$</span
-                        >336.39</bdi
-                      >
-                    </span>
-                  </span>
+                    No data found
                 </li>
-                <li class="woocommerce-mini-cart-item mini_cart_item">
-                  <a href="#" class="remove remove_from_cart_button">×</a>
-                  <a class="woocommerce-price-title" href="#"
-                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
-                    Marble Lamp</a
-                  >
-                  <span class="quantity"
-                    >1 ×
-                    <span class="woocommerce-price-amount amount">
-                      <bdi
-                        ><span class="woocommerce-Price-currencySymbol">$</span
-                        >336.39</bdi
-                      >
-                    </span>
-                  </span>
-                </li>
-                <li class="woocommerce-mini-cart-item mini_cart_item">
-                  <a href="#" class="remove remove_from_cart_button">×</a>
-                  <a class="woocommerce-price-title" href="#"
-                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
-                    Marble Lamp</a
-                  >
-                  <span class="quantity"
-                    >1 ×
-                    <span class="woocommerce-price-amount amount">
-                      <bdi
-                        ><span class="woocommerce-Price-currencySymbol">$</span
-                        >336.39</bdi
-                      >
-                    </span>
-                  </span>
-                </li>
-                <li class="woocommerce-mini-cart-item mini_cart_item">
-                  <a href="#" class="remove remove_from_cart_button">×</a>
-                  <a class="woocommerce-price-title" href="#"
-                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
-                    Marble Lamp</a
-                  >
-                  <span class="quantity"
-                    >1 ×
-                    <span class="woocommerce-price-amount amount">
-                      <bdi
-                        ><span class="woocommerce-Price-currencySymbol">$</span
-                        >336.39</bdi
-                      >
-                    </span>
-                  </span>
-                </li>
-                <li class="woocommerce-mini-cart-item mini_cart_item">
-                  <a href="#" class="remove remove_from_cart_button">×</a>
-                  <a class="woocommerce-price-title" href="#"
-                    ><img src="{{asset('assets/frontend/images/cart/Img-1.jpg')}}" alt="" />Synergistic
-                    Marble Lamp</a
-                  >
-                  <span class="quantity"
-                    >1 ×
-                    <span class="woocommerce-price-amount amount">
-                      <bdi
-                        ><span class="woocommerce-Price-currencySymbol">$</span
-                        >336.39</bdi
-                      >
-                    </span>
-                  </span>
-                </li>
+                @endif
+
+
+
+
               </ul>
             </div>
           </div>
           <div class="aon-woocart-footer">
             <div class="aon-woocart-foo-top">
-              <div class="aon-woocart-foo-top-left">Subtotal :</div>
-              <div class="aon-woocart-foo-top-right">$255</div>
+              <div class="aon-woocart-foo-top-left">Product :</div>
+              <div class="aon-woocart-foo-top-right"></div>
             </div>
             <div class="aon-woocart-foo-bot">
               <div class="aon-woocart-foo-bot-left">
-                <button
+                <a href="http://wetaly-commerce.test/cart" ><button
                   class="site-button-amore site-button-secondry btn-animate-one">
                   Add More
-                </button>
+                </button></a>
               </div>
               <div class="aon-woocart-foo-bot-right">
+                <a href=""></a>
                 <button
                   class="site-button-chechout site-button btn-animate-one">
                   CheckOut

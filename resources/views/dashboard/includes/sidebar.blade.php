@@ -2,7 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('dashboard')}}" class="brand-link">
-      <img src="{{asset('assets/frontend/images/logo3.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{asset('assets/frontend/images/logo3.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+       style="opacity: .8">
       <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
@@ -14,7 +15,22 @@
           <img src="{{asset('assets/frontend/images/logo3.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin {{ Auth::user()->name }}</a>
+            @guest
+            @if (Route::has('postLogin'))
+                {{-- <li class="nav-item "> --}}
+                    <a class="btn btn-success" href="{{ route('postLogin') }}">{{ __('Sign In') }}   </a>
+                {{-- </li> --}}
+            @endif
+
+        @else
+            {{-- <li class="nav-item dropdown"> --}}
+                <a class="d-block">
+                    {{ Auth::user()->name }}
+                </a>
+
+            {{-- </li> --}}
+        @endguest
+          {{-- <a href="#" class="d-block">Admin {{ Auth::user()->name }}</a> --}}
         </div>
       </div>
 
@@ -79,9 +95,9 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Layout Options
+                Pages
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                {{-- <span class="badge badge-info right">6</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -117,7 +133,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Settings
+                Data
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -157,6 +173,17 @@
             </ul>
           </li>
           <li class="nav-header">EXAMPLES</li>
+
+          <li class="nav-item">
+            <a href="{{route('show.settings')}}" class="nav-link">
+              <i class="nav-icon far fa-wrench"></i>
+              <ion-icon name="settings-outline"></ion-icon>
+              <p>
+                Settings
+              </p>
+            </a>
+          </li>
+
 
           <li class="nav-item">
             <a href="{{route('show.gallery')}}" class="nav-link">
