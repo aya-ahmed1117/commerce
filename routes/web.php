@@ -145,14 +145,11 @@ use Illuminate\Support\Facades\Auth;
      * @action PagesController@blogDetails
      */
     Route::get('/blog/details', "PagesController@blogDetails")->name('blog-details');
-
-    //show_cart
-Route::get('/cart', "PagesController@cart")->name('show.cart');
-//cart.remove
-// Route::get('cart/delete/{id}',"PagesController@delete")->name('delete.cart');
+    Route::get('/commerce/cart', 'PagesController@cart')->name('show.cart');
 
 
 });
+Route::post('/update-cart-count', [CartController::class, 'updateCartCount'])->name('cart.update.count');
 
 
 Route::get('/cart/delete/{id}' , [CartController::class ,'delete'])->name('delete.cart');

@@ -40,15 +40,13 @@ class ProductController extends Controller
         //$Product = Product::all();
 
         $request->validate([
-    		'name'=>'string|min:3|max:50',
+    		'name'=>'string|min:3|max:250',
     		'title'=>'string|min:3|max:400',
-            'price'=>'string|min:3|max:350',
+
             'descriptionAR'=>'string|min:3|max:1000',
             'descriptionEN'=>'string|min:3|max:1000',
             'descriptionIT'=>'string|min:3|max:1000',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-    		'created_at' =>now()
-    	]);
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048'    	]);
 
 
           // $datafile_path='public/images/';
@@ -60,15 +58,14 @@ class ProductController extends Controller
 
          $request->validate(['name' =>'required|string|unique:users|min:3|max:40',
          'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
-           Product::insert([
+           Product::create([
              'name' => $request->name,
              'title' => $request->title,
              'price' => $request->price,
              'image' => $path,
              'descriptionAR' => $request->descriptionAR,
              'descriptionEN' => $request->descriptionEN,
-             'descriptionIT' => $request->descriptionIT,
-             'created_at' =>now()
+             'descriptionIT' => $request->descriptionIT
              ]);
 
              return redirect()->route('show.product')->with('message','Done');
@@ -95,16 +92,16 @@ class ProductController extends Controller
         if($request->file('image')){
 
 
-            $request->validate([
-                'name'=>'string|min:3|max:340',
-                'title'=>'string|min:3|max:350',
-                'price'=>'string|min:3|max:350',
-                'descriptionAR'=>'string|min:3|max:1000',
-                'descriptionEN'=>'string|min:3|max:1000',
-                'descriptionIT'=>'string|min:3|max:1000',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-                'updated_at' =>now(),
-              ]);
+            // $request->validate([
+            //     'name'=>'string|min:3|max:340',
+            //     'title'=>'string|min:3|max:350',
+
+            //     'descriptionAR'=>'string|min:3|max:1000',
+            //     'descriptionEN'=>'string|min:3|max:1000',
+            //     'descriptionIT'=>'string|min:3|max:1000',
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            //     'updated_at' =>now()
+            //   ]);
 
               $imageName2 = time() . '.' . $request->file('image')->getClientOriginalExtension();
               $saveFolder2 = 'product';
@@ -120,8 +117,7 @@ class ProductController extends Controller
                 'descriptionAR'=>$request->descriptionAR,
                 'descriptionEN'=>$request->descriptionEN,
                 'descriptionIT'=>$request->descriptionIT,
-                'image' =>$path2,
-                'updated_at'=>now()
+                'image' =>$path2
               ]);
               $notification = array(
                 'message_id' => 'تم تعديل الوجبة بنجاح',
@@ -137,7 +133,7 @@ class ProductController extends Controller
             Product::findOrFail($id)->update([
                 'name'=>$request->name,
                 'title'=>$request->title,
-                'price'=>$request->title,
+                'price'=>$request->price,
                 'descriptionAR'=>$request->descriptionAR,
                 'descriptionEN'=>$request->descriptionEN,
                 'descriptionIT'=>$request->descriptionIT,
@@ -165,99 +161,7 @@ class ProductController extends Controller
             }
 
 
-    //         /**************** */
-    //         public function cart()
 
-    // {
-
-    //     return view('cart');
-
-    // }
-
-
-    // public function addToCart($id)
-
-    // {
-
-    //     $product = Product::findOrFail($id);
-
-
-
-    //     $cart = session()->get('cart', []);
-
-
-
-    //     if(isset($cart[$id])) {
-
-    //         $cart[$id]['quantity']++;
-
-    //     } else {
-
-    //         $cart[$id] = [
-
-    //             "name" => $product->name,
-
-    //             "quantity" => 1,
-
-    //             "price" => $product->price,
-
-    //             "image" => $product->image
-
-    //         ];
-
-    //     }
-
-
-
-    //     session()->put('cart', $cart);
-
-    //     return redirect()->back()->with('success', 'Product added to cart successfully!');
-
-    // }
-
-
-    // public function update(Request $request)
-
-    // {
-
-    //     if($request->id && $request->quantity){
-
-    //         $cart = session()->get('cart');
-
-    //         $cart[$request->id]["quantity"] = $request->quantity;
-
-    //         session()->put('cart', $cart);
-
-    //         session()->flash('success', 'Cart updated successfully');
-
-    //     }
-
-    // }
-
-
-
-
-    // public function remove(Request $request)
-
-    // {
-
-    //     if($request->id) {
-
-    //         $cart = session()->get('cart');
-
-    //         if(isset($cart[$request->id])) {
-
-    //             unset($cart[$request->id]);
-
-    //             session()->put('cart', $cart);
-
-    //         }
-
-    //         session()->flash('success', 'Product removed successfully');
-
-    //     }
-
-    // }
 
 }
 

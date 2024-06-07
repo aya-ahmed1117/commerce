@@ -150,7 +150,7 @@
             </div>
             <div class="aon-woocart-foo-bot">
               <div class="aon-woocart-foo-bot-left">
-                <a href="http://wetaly-commerce.test/cart" ><button
+                <a href="http://wetaly-commerce.test/commerce/cart" ><button
                   class="site-button-amore site-button-secondry btn-animate-one">
                   Add More
                 </button></a>

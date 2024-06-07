@@ -325,7 +325,8 @@ class PagesController extends Controller
         $keywordsSetting = Settings::where('key', 'keywords')->value('value');
         $seoSetting = Settings::where('key', 'seo')->value('value');
         $DesSetting = Settings::where('key', 'Description')->value('value');
-        return view("frontend.pages.e-commerce.cart",
+        // return view("frontend.pages.e-commerce.cart",
+        return view("frontend.pages.commerce.cart",
         compact('aboutus','sliders','slider_img'
         ,'SocialFac','SocialTwi','SocialInsta',
         'SocialYout','Partners','Gallerys'

@@ -108,7 +108,7 @@
                              {{-- id="itm-Quantity" --}}
                           <input
                             id="itm-Quantity"
-                            type="number" class="quantity" data-price="{{$order->price}}"
+                            type="number" disabled class="quantity" data-price="{{$order->price}}"
                             value="{{ $order->quantity }}"
                             name="quantity"/>
                         </div>
@@ -238,21 +238,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.0/jquery.bootstrap-touchspin.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.0/jquery.bootstrap-touchspin.min.js"></script>
 
-<!-- HTML for quantity input with TouchSpin -->
-<td data-title="qty" class="numeric">
-    <div class="itm-Quantity-wrap" style="width:150px">
-        <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-            <span class="input-group-btn input-group-prepend">
-                <button class="btn btn-primary bootstrap-touchspin-down" type="button">-</button>
-            </span>
-            <input id="itm-Quantity" type="number" class="quantity form-control" data-price="{{$order->price}}"
-              name="quantity">
-            <span class="input-group-btn input-group-append">
-                <button class="btn btn-primary bootstrap-touchspin-up" type="button">+</button>
-            </span>
-        </div>
-    </div>
-</td>
 
 <!-- Script to control quantity -->
 <script>

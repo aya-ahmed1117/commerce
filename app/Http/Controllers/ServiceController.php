@@ -44,8 +44,7 @@ class ServiceController extends Controller
             'name'=>'string|min:3|max:150',
             'title'=>'string|min:3|max:150',
             'descriptionEN'=>'string|min:3|max:400',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            'created_at' =>now(),
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048'
         ]);
 
 

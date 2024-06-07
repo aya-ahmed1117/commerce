@@ -110,40 +110,12 @@ public function check_out(Request $request)
     }
 }
 
+public function updateCartCount(Request $request)
+{
+    // Handle the cart count update logic here
+    $count = $request->input('count');
+    // Perform the necessary operations to update the cart count
 
-    //     public function check_out(Request $request)
-    //     {
-    //    if (Auth()->check()) {
-
-            // orders ::insert([
-            //     'order_number' => $request->order,
-            //     'total_amount' => $request->total_amount,
-            //     'name' => Auth::user()->name,
-            //     'status' => 'pending',
-            //     'created_at' =>now()
-            //     ]);
-    //              $orders = order_items::all();
-    //            //  $productIds = $orders->pluck('product_id')->toArray();
-    //             // $Products = Product::whereIn('id', $productIds)->get();
-
-    //             $id=$orders->id;
-    //                 Order_items::findOrFail($id)->update([
-    //                     'name'=> Auth::user()->name,
-    //                     'status'=>'check out',
-    //                     'updated_at'=>now()
-    //                 ]);
-
-
-    //          return redirect()->back()->with('success', 'Product added to cart successfully.');
-    //         }else{
-    //             // return view('dashboard.pages.login');
-    //             $notification = array(
-    //                 'message_id' => 'You Need To sign In first',
-    //                 'alert-type' => 'info'
-    //             );
-    //         //    return view('dashboard.pages.login')->with($notification);
-
-    //             return redirect()->back()->with($notification);
-    //         }
-    //     }
+    return response()->json(['cartCount' => $count]);
+}
 }

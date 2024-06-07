@@ -35,7 +35,7 @@
                                     <th style="" scope="col"> ID</th>
                                     <th style="cursor: pointer;" scope="col"><i data-mdb-sort="company"
                                             class="table-editor__sort-icon fas fa-arrow-up"></i> Name</th>
-                                    <th style="" scope="col"> Email</th>
+                                    <th style="" scope="col"> Price</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
@@ -50,7 +50,7 @@
                                         {{$Product->name}}
                                     </td>
                                     <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">
-                                        {{$Product->titel}}
+                                        {{$Product->price}}
 
                                     </td>
                                     <td style="min-width: 250px; max-width: 250px" class="" data-mdb-field="company">

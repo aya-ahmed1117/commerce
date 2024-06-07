@@ -143,33 +143,41 @@
                        <div class="form-group">
                            <label for="name">Name</label>
                            <input type="text" class="form-control" value="{{$Products->name}}" name="name"
-                           placeholder="اسم الوجبة">
+                           placeholder="Name">
                        </div>
+
                         <div class="form-group">
-                            <label for="name">Title</label>
+                            <label for="title">Title</label>
                             <input type="text" class="form-control" value="{{$Products->title}}" name="title"
-                            placeholder="اسم الوجبة">
+                            placeholder="Title">
                         </div>
                         <div class="form-group">
-                            <label for="name">Price</label>
-                            <input type="num" class="form-control" value="{{$Products->price}}" name="price"
+                            <label for="price">Price</label>
+                            <input type="number" class="form-control" value="{{$Products->price}}" name="price"
                             placeholder="price">
                         </div>
                        <div class="form-group">
-                           <label for="description">Description EN</label>
+                           <label for="descriptionEN">Description EN</label>
                            <textarea class="form-control" value="{!!$Products->descriptionEN!!}"
                             name="descriptionEN">{!!$Products->descriptionEN!!}</textarea>
                        </div>
-                       <div class="form-group">
-                        <label for="description">Description AR</label>
-                        <textarea class="form-control" value="{!!$Products->descriptionA!!}}"
+
+
+
+                    <div class="form-group">
+                        <label for="descriptionAR">Description AR</label>
+                        <textarea class="form-control" value="{!!$Products->descriptionAR!!}"
                          name="descriptionAR">{!!$Products->descriptionAR!!}</textarea>
                     </div>
+
                     <div class="form-group">
-                        <label for="description">Description IT</label>
-                        <textarea class="form-control" value="{!!$Products->descriptionI!!}}"
+                        <label for="descriptionIT">description IT</label>
+                        <textarea class="form-control" value="{!!$Products->descriptionIT!!}"
                          name="descriptionIT">{!!$Products->descriptionIT!!}</textarea>
                     </div>
+
+
+
                    <div class="form-group">
                        {{-- <h5>اختر صنف <span class="text-danger">*</span></h5> --}}
                        <div class="controls">
@@ -191,7 +199,7 @@
                            </div>
                            <br>
                            <div class="form-group">
-                               <img id="showImage" style="width: 100px; height: 100px;"> </div>
+                               <img id="showImage" src='{{asset("storage/$Products->image")}}' style="width: 100px; height: 100px;"> </div>
 
 
                            <br>
